@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
@@ -60,12 +61,19 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btn_Next = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.bttn_Next = new System.Windows.Forms.PictureBox();
+            this.btn_Previous = new System.Windows.Forms.PictureBox();
             this.bttn_Supprimer = new System.Windows.Forms.Button();
             this.bttn_modif_inser = new System.Windows.Forms.Button();
-            this.treeView1 = new System.Windows.Forms.TreeView();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textDuree = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -80,7 +88,10 @@
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel_calendrier.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.btn_Next.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bttn_Next)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Previous)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -88,7 +99,7 @@
             // 
             this.tabControl1.Alignment = System.Windows.Forms.TabAlignment.Bottom;
             this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.btn_Next);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
@@ -127,52 +138,77 @@
             // 
             // bt_51_60
             // 
+            this.bt_51_60.BackColor = System.Drawing.Color.Orange;
+            this.bt_51_60.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bt_51_60.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gold;
+            this.bt_51_60.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
+            this.bt_51_60.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_51_60.Location = new System.Drawing.Point(3, 3);
             this.bt_51_60.Name = "bt_51_60";
             this.bt_51_60.Size = new System.Drawing.Size(125, 23);
             this.bt_51_60.TabIndex = 5;
             this.bt_51_60.Text = "51 - 60";
-            this.bt_51_60.UseVisualStyleBackColor = true;
+            this.bt_51_60.UseVisualStyleBackColor = false;
             this.bt_51_60.Click += new System.EventHandler(this.bt_dix_Click);
             // 
             // bt_61_70
             // 
+            this.bt_61_70.BackColor = System.Drawing.Color.Orange;
+            this.bt_61_70.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bt_61_70.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gold;
+            this.bt_61_70.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
+            this.bt_61_70.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_61_70.Location = new System.Drawing.Point(134, 3);
             this.bt_61_70.Name = "bt_61_70";
             this.bt_61_70.Size = new System.Drawing.Size(125, 23);
             this.bt_61_70.TabIndex = 6;
             this.bt_61_70.Text = "61 - 70";
-            this.bt_61_70.UseVisualStyleBackColor = true;
+            this.bt_61_70.UseVisualStyleBackColor = false;
             this.bt_61_70.Click += new System.EventHandler(this.bt_dix_Click);
             // 
             // bt_71_80
             // 
+            this.bt_71_80.BackColor = System.Drawing.Color.Orange;
+            this.bt_71_80.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bt_71_80.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gold;
+            this.bt_71_80.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
+            this.bt_71_80.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_71_80.Location = new System.Drawing.Point(265, 3);
             this.bt_71_80.Name = "bt_71_80";
             this.bt_71_80.Size = new System.Drawing.Size(125, 23);
             this.bt_71_80.TabIndex = 7;
             this.bt_71_80.Text = "71 - 80";
-            this.bt_71_80.UseVisualStyleBackColor = true;
+            this.bt_71_80.UseVisualStyleBackColor = false;
             this.bt_71_80.Click += new System.EventHandler(this.bt_dix_Click);
             // 
             // bt_81_90
             // 
+            this.bt_81_90.BackColor = System.Drawing.Color.Orange;
+            this.bt_81_90.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bt_81_90.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gold;
+            this.bt_81_90.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
+            this.bt_81_90.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_81_90.Location = new System.Drawing.Point(396, 3);
             this.bt_81_90.Name = "bt_81_90";
             this.bt_81_90.Size = new System.Drawing.Size(125, 23);
             this.bt_81_90.TabIndex = 8;
             this.bt_81_90.Text = "81 - 90";
-            this.bt_81_90.UseVisualStyleBackColor = true;
+            this.bt_81_90.UseVisualStyleBackColor = false;
             this.bt_81_90.Click += new System.EventHandler(this.bt_dix_Click);
             // 
             // bt_91_100
             // 
+            this.bt_91_100.BackColor = System.Drawing.Color.Orange;
+            this.bt_91_100.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bt_91_100.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gold;
+            this.bt_91_100.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
+            this.bt_91_100.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_91_100.Location = new System.Drawing.Point(527, 3);
             this.bt_91_100.Name = "bt_91_100";
             this.bt_91_100.Size = new System.Drawing.Size(125, 23);
             this.bt_91_100.TabIndex = 9;
             this.bt_91_100.Text = "91 - 100";
-            this.bt_91_100.UseVisualStyleBackColor = true;
+            this.bt_91_100.UseVisualStyleBackColor = false;
             this.bt_91_100.Click += new System.EventHandler(this.bt_dix_Click);
             // 
             // flowLayoutPanel2
@@ -190,52 +226,77 @@
             // 
             // bt_1_10
             // 
+            this.bt_1_10.BackColor = System.Drawing.Color.Orange;
+            this.bt_1_10.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bt_1_10.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gold;
+            this.bt_1_10.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
+            this.bt_1_10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_1_10.Location = new System.Drawing.Point(3, 3);
             this.bt_1_10.Name = "bt_1_10";
             this.bt_1_10.Size = new System.Drawing.Size(125, 23);
             this.bt_1_10.TabIndex = 0;
             this.bt_1_10.Text = "1 - 10";
-            this.bt_1_10.UseVisualStyleBackColor = true;
+            this.bt_1_10.UseVisualStyleBackColor = false;
             this.bt_1_10.Click += new System.EventHandler(this.bt_dix_Click);
             // 
             // bt_11_20
             // 
+            this.bt_11_20.BackColor = System.Drawing.Color.Orange;
+            this.bt_11_20.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bt_11_20.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gold;
+            this.bt_11_20.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
+            this.bt_11_20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_11_20.Location = new System.Drawing.Point(134, 3);
             this.bt_11_20.Name = "bt_11_20";
             this.bt_11_20.Size = new System.Drawing.Size(125, 23);
             this.bt_11_20.TabIndex = 1;
             this.bt_11_20.Text = "11 - 20";
-            this.bt_11_20.UseVisualStyleBackColor = true;
+            this.bt_11_20.UseVisualStyleBackColor = false;
             this.bt_11_20.Click += new System.EventHandler(this.bt_dix_Click);
             // 
             // bt_21_30
             // 
+            this.bt_21_30.BackColor = System.Drawing.Color.Orange;
+            this.bt_21_30.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bt_21_30.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gold;
+            this.bt_21_30.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
+            this.bt_21_30.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_21_30.Location = new System.Drawing.Point(265, 3);
             this.bt_21_30.Name = "bt_21_30";
             this.bt_21_30.Size = new System.Drawing.Size(125, 23);
             this.bt_21_30.TabIndex = 2;
             this.bt_21_30.Text = "21 - 30";
-            this.bt_21_30.UseVisualStyleBackColor = true;
+            this.bt_21_30.UseVisualStyleBackColor = false;
             this.bt_21_30.Click += new System.EventHandler(this.bt_dix_Click);
             // 
             // bt_31_40
             // 
+            this.bt_31_40.BackColor = System.Drawing.Color.Orange;
+            this.bt_31_40.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bt_31_40.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gold;
+            this.bt_31_40.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
+            this.bt_31_40.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_31_40.Location = new System.Drawing.Point(396, 3);
             this.bt_31_40.Name = "bt_31_40";
             this.bt_31_40.Size = new System.Drawing.Size(125, 23);
             this.bt_31_40.TabIndex = 3;
             this.bt_31_40.Text = "31 - 40";
-            this.bt_31_40.UseVisualStyleBackColor = true;
+            this.bt_31_40.UseVisualStyleBackColor = false;
             this.bt_31_40.Click += new System.EventHandler(this.bt_dix_Click);
             // 
             // bt_41_50
             // 
+            this.bt_41_50.BackColor = System.Drawing.Color.Orange;
+            this.bt_41_50.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bt_41_50.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gold;
+            this.bt_41_50.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
+            this.bt_41_50.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_41_50.Location = new System.Drawing.Point(527, 3);
             this.bt_41_50.Name = "bt_41_50";
             this.bt_41_50.Size = new System.Drawing.Size(125, 23);
             this.bt_41_50.TabIndex = 4;
             this.bt_41_50.Text = "41 - 50";
-            this.bt_41_50.UseVisualStyleBackColor = true;
+            this.bt_41_50.UseVisualStyleBackColor = false;
             this.bt_41_50.Click += new System.EventHandler(this.bt_dix_Click);
             // 
             // flowLayoutPanel1
@@ -252,52 +313,82 @@
             // 
             // bt_1_100
             // 
+            this.bt_1_100.BackColor = System.Drawing.Color.DarkOrange;
+            this.bt_1_100.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bt_1_100.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
+            this.bt_1_100.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.bt_1_100.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_1_100.ForeColor = System.Drawing.SystemColors.ControlText;
             this.bt_1_100.Location = new System.Drawing.Point(3, 3);
             this.bt_1_100.Name = "bt_1_100";
             this.bt_1_100.Size = new System.Drawing.Size(125, 41);
             this.bt_1_100.TabIndex = 0;
             this.bt_1_100.Text = "1 - 100";
-            this.bt_1_100.UseVisualStyleBackColor = true;
+            this.bt_1_100.UseVisualStyleBackColor = false;
             this.bt_1_100.Click += new System.EventHandler(this.bt_cent_Click);
             // 
             // bt_101_200
             // 
+            this.bt_101_200.BackColor = System.Drawing.Color.DarkOrange;
+            this.bt_101_200.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bt_101_200.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
+            this.bt_101_200.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.bt_101_200.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_101_200.ForeColor = System.Drawing.SystemColors.ControlText;
             this.bt_101_200.Location = new System.Drawing.Point(134, 3);
             this.bt_101_200.Name = "bt_101_200";
             this.bt_101_200.Size = new System.Drawing.Size(125, 41);
             this.bt_101_200.TabIndex = 1;
             this.bt_101_200.Text = "101 - 200";
-            this.bt_101_200.UseVisualStyleBackColor = true;
+            this.bt_101_200.UseVisualStyleBackColor = false;
             this.bt_101_200.Click += new System.EventHandler(this.bt_cent_Click);
             // 
             // bt_201_300
             // 
+            this.bt_201_300.BackColor = System.Drawing.Color.DarkOrange;
+            this.bt_201_300.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bt_201_300.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
+            this.bt_201_300.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.bt_201_300.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_201_300.ForeColor = System.Drawing.SystemColors.ControlText;
             this.bt_201_300.Location = new System.Drawing.Point(265, 3);
             this.bt_201_300.Name = "bt_201_300";
             this.bt_201_300.Size = new System.Drawing.Size(125, 41);
             this.bt_201_300.TabIndex = 2;
             this.bt_201_300.Text = "201 - 300";
-            this.bt_201_300.UseVisualStyleBackColor = true;
+            this.bt_201_300.UseVisualStyleBackColor = false;
             this.bt_201_300.Click += new System.EventHandler(this.bt_cent_Click);
             // 
             // bt_301_400
             // 
+            this.bt_301_400.BackColor = System.Drawing.Color.DarkOrange;
+            this.bt_301_400.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bt_301_400.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
+            this.bt_301_400.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.bt_301_400.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_301_400.ForeColor = System.Drawing.SystemColors.ControlText;
             this.bt_301_400.Location = new System.Drawing.Point(396, 3);
             this.bt_301_400.Name = "bt_301_400";
             this.bt_301_400.Size = new System.Drawing.Size(125, 41);
             this.bt_301_400.TabIndex = 3;
             this.bt_301_400.Text = "301 - 400";
-            this.bt_301_400.UseVisualStyleBackColor = true;
+            this.bt_301_400.UseVisualStyleBackColor = false;
             this.bt_301_400.Click += new System.EventHandler(this.bt_cent_Click);
             // 
             // bt_401_500
             // 
+            this.bt_401_500.BackColor = System.Drawing.Color.DarkOrange;
+            this.bt_401_500.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bt_401_500.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
+            this.bt_401_500.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.bt_401_500.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_401_500.ForeColor = System.Drawing.SystemColors.ControlText;
             this.bt_401_500.Location = new System.Drawing.Point(527, 3);
             this.bt_401_500.Name = "bt_401_500";
             this.bt_401_500.Size = new System.Drawing.Size(125, 41);
             this.bt_401_500.TabIndex = 4;
             this.bt_401_500.Text = "401 - 500";
-            this.bt_401_500.UseVisualStyleBackColor = true;
+            this.bt_401_500.UseVisualStyleBackColor = false;
             this.bt_401_500.Click += new System.EventHandler(this.bt_cent_Click);
             // 
             // label1
@@ -426,19 +517,107 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.bttn_Jour_Click);
             // 
-            // tabPage2
+            // btn_Next
             // 
-            this.tabPage2.Controls.Add(this.bttn_Supprimer);
-            this.tabPage2.Controls.Add(this.bttn_modif_inser);
-            this.tabPage2.Controls.Add(this.treeView1);
-            this.tabPage2.Controls.Add(this.label2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 4);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(787, 486);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.btn_Next.Controls.Add(this.dataGridView1);
+            this.btn_Next.Controls.Add(this.tableLayoutPanel1);
+            this.btn_Next.Controls.Add(this.bttn_Next);
+            this.btn_Next.Controls.Add(this.btn_Previous);
+            this.btn_Next.Controls.Add(this.bttn_Supprimer);
+            this.btn_Next.Controls.Add(this.bttn_modif_inser);
+            this.btn_Next.Controls.Add(this.label2);
+            this.btn_Next.Location = new System.Drawing.Point(4, 4);
+            this.btn_Next.Name = "btn_Next";
+            this.btn_Next.Padding = new System.Windows.Forms.Padding(3);
+            this.btn_Next.Size = new System.Drawing.Size(787, 486);
+            this.btn_Next.TabIndex = 1;
+            this.btn_Next.Text = "tabPage2";
+            this.btn_Next.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1});
+            this.dataGridView1.Location = new System.Drawing.Point(105, 76);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView1.TabIndex = 20;
+            this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
+            this.dataGridView1.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView1_CellPainting);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "";
+            this.Column1.Name = "Column1";
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.tableLayoutPanel1.ColumnCount = 7;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(375, 266);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 26;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846155F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846155F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846155F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846155F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846155F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846155F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846155F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846155F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846155F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846155F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846155F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846155F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846155F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846155F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846155F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846155F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846155F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846155F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846155F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846155F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846155F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846155F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846155F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846155F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846155F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846155F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(560, 407);
+            this.tableLayoutPanel1.TabIndex = 19;
+            // 
+            // bttn_Next
+            // 
+            this.bttn_Next.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bttn_Next.Image = ((System.Drawing.Image)(resources.GetObject("bttn_Next.Image")));
+            this.bttn_Next.Location = new System.Drawing.Point(709, 211);
+            this.bttn_Next.Name = "bttn_Next";
+            this.bttn_Next.Size = new System.Drawing.Size(53, 52);
+            this.bttn_Next.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.bttn_Next.TabIndex = 18;
+            this.bttn_Next.TabStop = false;
+            this.bttn_Next.Click += new System.EventHandler(this.bttn_Next_Click);
+            // 
+            // btn_Previous
+            // 
+            this.btn_Previous.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Previous.BackgroundImage")));
+            this.btn_Previous.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Previous.Location = new System.Drawing.Point(19, 211);
+            this.btn_Previous.Name = "btn_Previous";
+            this.btn_Previous.Size = new System.Drawing.Size(53, 52);
+            this.btn_Previous.TabIndex = 17;
+            this.btn_Previous.TabStop = false;
+            this.btn_Previous.Click += new System.EventHandler(this.btn_Previous_Click);
             // 
             // bttn_Supprimer
             // 
@@ -459,13 +638,6 @@
             this.bttn_modif_inser.UseVisualStyleBackColor = true;
             this.bttn_modif_inser.Click += new System.EventHandler(this.bttn_modif_inser_Click);
             // 
-            // treeView1
-            // 
-            this.treeView1.Location = new System.Drawing.Point(186, 43);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(334, 372);
-            this.treeView1.TabIndex = 1;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -477,6 +649,9 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.label7);
+            this.tabPage3.Controls.Add(this.label3);
+            this.tabPage3.Controls.Add(this.textDuree);
             this.tabPage3.Controls.Add(this.label6);
             this.tabPage3.Controls.Add(this.label5);
             this.tabPage3.Controls.Add(this.label4);
@@ -491,6 +666,31 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(316, 275);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(23, 13);
+            this.label7.TabIndex = 26;
+            this.label7.Text = "min";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(240, 272);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(36, 13);
+            this.label3.TabIndex = 25;
+            this.label3.Text = "Durée";
+            // 
+            // textDuree
+            // 
+            this.textDuree.Location = new System.Drawing.Point(282, 269);
+            this.textDuree.Name = "textDuree";
+            this.textDuree.Size = new System.Drawing.Size(27, 20);
+            this.textDuree.TabIndex = 24;
             // 
             // label6
             // 
@@ -537,7 +737,7 @@
             // 
             // btn_valid
             // 
-            this.btn_valid.Location = new System.Drawing.Point(259, 272);
+            this.btn_valid.Location = new System.Drawing.Point(259, 295);
             this.btn_valid.Name = "btn_valid";
             this.btn_valid.Size = new System.Drawing.Size(75, 23);
             this.btn_valid.TabIndex = 17;
@@ -577,8 +777,11 @@
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel_calendrier.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this.btn_Next.ResumeLayout(false);
+            this.btn_Next.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bttn_Next)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Previous)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
@@ -616,12 +819,11 @@
         private System.Windows.Forms.Button bt_71_80;
         private System.Windows.Forms.Button bt_81_90;
         private System.Windows.Forms.Button bt_91_100;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage btn_Next;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
-        private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.Button bttn_Supprimer;
         private System.Windows.Forms.Button bttn_modif_inser;
         private System.Windows.Forms.TabPage tabPage3;
@@ -633,6 +835,14 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox bttn_Next;
+        private System.Windows.Forms.PictureBox btn_Previous;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textDuree;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }
 

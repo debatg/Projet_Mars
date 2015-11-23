@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace Projet_WF1
 {
@@ -13,25 +14,35 @@ namespace Projet_WF1
         private int _num;
         private Activite[] _tabAct;
         private TreeView _tree;
+        private XElement _calendrierXml;
+        private XElement _jourXml = new XElement("Jour");
+        private XElement _actXml = new XElement("Activité");
+        private XElement _astroXml = new XElement("Astronaute");
 
-        public Jour(int num, TreeView tree)
+        public Jour(int num,  XElement calendrierXml)
         {
             Num = num;
             _listAct = new List<Activite>();
             _tabAct = new Activite[148];
-            _tree = tree;
+            _tree = new TreeView();
             _tree.Nodes.Clear();
             _tree.BeginUpdate();
             for (int i= 0;i<=24;i++)
             {
-                _tree.Nodes.Add(i.ToString());
+                _tree.Nodes.Add(new TreeNode(i.ToString()));
                 for(int a=0;a<=5;a++)
                 {
-                    _tree.Nodes[i].Nodes.Add(a.ToString() + "0");
+                    //_tree.Nodes[i].Nodes.Add(a.ToString() + "0");
+                    _tree.Nodes[i].Nodes.Add(new TreeNode(a.ToString() + "0"));
+
                 }
             }
             _tree.EndUpdate();
 
+            _calendrierXml = calendrierXml;
+            _jourXml.SetAttributeValue("num", num);
+            //_calendrierXml.Add(new XElement("Jour", new XAttribute("num", num.ToString())));
+            _calendrierXml.Add(_jourXml);
         }
 
         public int Num
@@ -60,9 +71,22 @@ namespace Projet_WF1
             }
         }
 
-        public void addAct(Activite A, int heure, int min)
+        public Activite[] TabAct
         {
-            _listAct.Add(A);
+            get
+            {
+                return _tabAct;
+            }
+
+            set
+            {
+                _tabAct = value;
+            }
+        }
+
+        public void addAct(Activite A, int heure, int min, int duree)
+        {
+            /*_listAct.Add(A);
             _tree.BeginUpdate();
             foreach(TreeNode T in _tree.Nodes[heure].Nodes)
             {
@@ -73,7 +97,15 @@ namespace Projet_WF1
                     
             }
             _tree.EndUpdate();
-        }
+            _jourXml.Add(new XElement("Activite", new XElement(A.Nom),new XElement("Heure", heure.ToString()+"/"+min.ToString())));
+        */
+            for (int i = 0; i < duree / 10; i++)
+            {
+                _tabAct[(heure * 6) + (min / 10) + i] = A;
+            }
+    }
+
+        
 
         public override string ToString()
         {

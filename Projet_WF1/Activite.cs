@@ -10,6 +10,7 @@ namespace Projet_WF1
     class Activite
     {
         private string _nom;
+        
 
         public string Nom
         {
@@ -38,5 +39,6 @@ namespace Projet_WF1
             return Nom;
         }
 
+        
     }
 }

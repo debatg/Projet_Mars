@@ -16,7 +16,9 @@ namespace Projet_WF1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
+            Form2 f1 = new Form2();
+            Application.Run(f1);
         }
     }
 }
