@@ -1,19 +1,20 @@
 ﻿using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Projet_WF1
 {
-    partial class Form2
+    partial class PanelEdt :Panel
     {
         /// <summary>
-        /// Required designer variable.
+        /// Variable nécessaire au concepteur.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Clean up any resources being used.
+        /// Nettoyage des ressources utilisées.
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">true si les ressources managées doivent être supprimées ; sinon, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -23,26 +24,27 @@ namespace Projet_WF1
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Code généré par le Concepteur de composants
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// Méthode requise pour la prise en charge du concepteur - ne modifiez pas 
+        /// le contenu de cette méthode avec l'éditeur de code.
         /// </summary>
         private void InitializeComponent()
         {
+
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.LB = new List<Button>();
-            
-
+            this.Controls.Add(dataGridView1);
+            this.Controls.Add(label1);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(114, 35);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(586, 470);
             this.dataGridView1.ScrollBars = ScrollBars.None;
@@ -54,26 +56,25 @@ namespace Projet_WF1
             this.dataGridView1.CausesValidation = false;
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.RowCount = 26;
-             this.dataGridView1.ColumnCount = 7;
+            this.dataGridView1.ColumnCount = 7;
             this.dataGridView1.AutoResizeColumnHeadersHeight();
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                row.Height = (dataGridView1.Height)/26;
+                row.Height = (dataGridView1.Height) / 26;
             }
-            for(int i=1;i<26;i++)
+            for (int i = 1; i < 26; i++)
             {
-                dataGridView1.Rows[i].Cells[0].Value=((i - 1).ToString() + "H");
+                dataGridView1.Rows[i].Cells[0].Value = ((i - 1).ToString() + "H");
             }
             for (int i = 1; i < 7; i++)
             {
-                dataGridView1.Rows[0].Cells[i].Value = ((i - 1).ToString() +"0-"+i.ToString()+ "0Min");
+                dataGridView1.Rows[0].Cells[i].Value = ((i - 1).ToString() + "0-" + i.ToString() + "0Min");
             }
-            //this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             this.dataGridView1.ColumnHeadersVisible = false;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.AutoResizeRowHeadersWidth(System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders);
-            
+
             // 
             // label1
             // 
@@ -86,7 +87,10 @@ namespace Projet_WF1
             // 
             // Form2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.Location = new Point(114, 8);
+            //this.Size = new Size(589, 422);
+            this.Visible = true;
+            /*this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(795, 512);
             this.Controls.Add(this.label1);
@@ -95,14 +99,13 @@ namespace Projet_WF1
             this.Text = "Form2";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
+            this.PerformLayout();*/
 
         }
-
-        #endregion
-
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
         private List<Button> LB;
+
+        #endregion
     }
 }

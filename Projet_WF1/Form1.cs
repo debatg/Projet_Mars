@@ -14,7 +14,7 @@ namespace Projet_WF1
 {
     public partial class Form1 : Form
     {
-        private int cent = 0, dix = 0, calend = 0;
+        private int cent = 0, dix = 0, calend = 1;
         private string chemin;
         private List<Button> bttn_jour;
         private List<Jour> _list_Jour;
@@ -54,112 +54,24 @@ namespace Projet_WF1
                 _list_Jour.Add(new Jour(i, _calendrierXml));
                 i++;
             }
+            i = 0;
+            foreach (Button B in bttn_jour)
+            {
+
+                foreach (Jour J in _list_Jour)
+                {
+                    if (J.Num.ToString() == (calend + i).ToString())
+                        B.Text = J.Num.ToString();
+                }
+
+                i++;
+            }
             _docXml = new XDocument(_calendrierXml);
 
-            
-
-            
-
-        }
-
-        private void InitEdt()
-        {
-            List<PictureBox> LP = new List<PictureBox>();
-
-            for (int i = 1; i<= 25; i++)
-            {
-                
-                PictureBox P = new PictureBox();
-                P.BackColor = Color.FromName("GradientInactiveCaption");
-                P.Margin= new System.Windows.Forms.Padding(0);
-                P.Dock = DockStyle.Fill;
-                tableLayoutPanel1.Controls.Add(P,0,i);
-                LP.Add(P);
-                Label textAffich = new Label();
-                textAffich.Visible = true;
-                textAffich.Text = (i-1).ToString() + "H";
-                textAffich.Location = new Point((P.Location.X / 2) + tableLayoutPanel1.Location.X+3, P.Location.Y + tableLayoutPanel1.Location.Y);
-                textAffich.BackColor = Color.FromName("GradientInactiveCaption");
-                textAffich.Size = new Size(textAffich.Size.Width/2, textAffich.Size.Height / 2);
-                tabControl1.SelectTab(1);
-                tabControl1.SelectedTab.Controls.Add(textAffich);
-                tabControl1.SelectedTab.Controls.SetChildIndex(tableLayoutPanel1, 100);
-                tabControl1.SelectedTab.Controls.SetChildIndex(textAffich, 0);      
-
-            }
-            for (int i = 1; i <= 6; i++)
-            {
-                PictureBox P = new PictureBox();
-                P.BackColor = Color.FromName("GradientInactiveCaption");
-                P.Margin = new System.Windows.Forms.Padding(0);
-                P.Dock = DockStyle.Fill;
-                tableLayoutPanel1.Controls.Add(P, i, 0);
-                LP.Add(P);
-                Label textAffich = new Label();
-                textAffich.Visible = true;
-                textAffich.Text = ((i - 1)*10).ToString() +"-"+(i*10).ToString()+ " min";
-                textAffich.Location = new Point((P.Location.X) + tableLayoutPanel1.Location.X + 3, P.Location.Y + tableLayoutPanel1.Location.Y);
-                textAffich.BackColor = Color.FromName("GradientInactiveCaption");
-                textAffich.Size = new Size((tableLayoutPanel1.Size.Width/7)-10, (tableLayoutPanel1.Size.Height/25)-2);
-                tabControl1.SelectTab(1);
-                tabControl1.SelectedTab.Controls.Add(textAffich);
-                tabControl1.SelectedTab.Controls.SetChildIndex(tableLayoutPanel1, 100);
-                tabControl1.SelectedTab.Controls.SetChildIndex(textAffich, 0);
-            }
-        }
-
-        private void MajEdt()
-        {
-            int indexTab = 0;
-            List<PictureBox> LP = new List<PictureBox>();
-            Activite actPrec = null;
-            Label textAffich = new Label();
-            foreach (Activite A in jourCourant.TabAct)
-            {
-                if (A != null||actPrec!=null)
-                {
-
-                    
-                        PictureBox P = new PictureBox();
-                        P.BackColor = Color.FromName("LimeGreen");
-                        P.Margin = new System.Windows.Forms.Padding(0);
-                        P.Dock = DockStyle.Fill;
-                        int heure = indexTab / 6;
-                        int min = indexTab % 6;
-                        tableLayoutPanel1.Controls.Add(P, min + 1, heure + 1);
                     
 
-                    if (actPrec == null)
-                    {
-                        textAffich = new Label();
-                        textAffich.Visible = true;
-                        textAffich.Text = A.ToString();
-                        LP.Add(P);
-                    }
-                    else if (actPrec == A)
-                    {
-                        LP.Add(P);
-                    }
-                    else
-                    {
-                        textAffich.Location = new Point(((((LP[LP.Count - 1].Location.X) + (LP[0].Location.X))/2) + tableLayoutPanel1.Location.X + 3),
-                            ((LP[0].Location.Y) + tableLayoutPanel1.Location.Y));
-                        textAffich.BackColor = Color.FromName("LimeGreen");
-                        textAffich.Size = new Size((tableLayoutPanel1.Size.Width / 7) - 10, (tableLayoutPanel1.Size.Height / 25) - 2);
-                        tabControl1.SelectTab(1);
-                        tabControl1.SelectedTab.Controls.Add(textAffich);
-                        tabControl1.SelectedTab.Controls.SetChildIndex(tableLayoutPanel1, 100);
-                        tabControl1.SelectedTab.Controls.SetChildIndex(textAffich, 0);
-                        label2.Text = textAffich.Location.ToString();
-                        LP.Clear();
-                        LP.Add(P);
-                    }
-                }
-                actPrec = A;
-                indexTab++;
-                
-            }
         }
+
 
         private void InitXml()
         {
@@ -178,27 +90,29 @@ namespace Projet_WF1
                     jourCourant = J;
                 }              
             }
-            /*treeView1 = jourCourant.Tree;
-            if (jourCourant.Tree == treeView1) ;
-                //label2.Text = "ok";
-            treeView1.Show();
-            tabControl1.SelectTab(1);
-            //TreeView T = jourCourant.Tree;
-            treeView1.Refresh();*/
             InitEdt();
-            MajEdt();
-            
         }        
+
+        private void InitEdt()
+        {
+
+            Size S = panel1.Size;
+            Point P = panel1.Location;
+            panel1 = (Panel)new PanelEdt(jourCourant, label2);
+            panel1.Location = P;
+            panel1.Size = S;
+            tabControl1.SelectTab(1);
+            tabControl1.SelectedTab.Controls.Add(panel1);
+            tabControl1.SelectedTab.Controls.SetChildIndex(panel1, 0);
+        }
+
 
         private void btn_valid_Click(object sender, EventArgs e)
         {
             jourCourant.addAct(_list_Act[listBox1.SelectedIndex], int.Parse(textHeure.Text), int.Parse(textMin.Text), int.Parse(textDuree.Text));
-            //treeView1 = jourCourant.Tree;
             tabControl1.SelectTab(1);
-            //label2.Text = Directory.GetCurrentDirectory();
             _docXml.Save(Directory.GetCurrentDirectory()+"/calendrier.xml");
-            //InitEdt();
-            MajEdt();
+            InitEdt();
 
         }
 
@@ -221,10 +135,6 @@ namespace Projet_WF1
                 }
 
             }
-            /*TreeView T = jourCourant.Tree;
-            label2.Text = jourCourant.ToString();
-            treeView1 = T;*/
-            //treeView1.Refresh();
 
         }
 
@@ -241,21 +151,8 @@ namespace Projet_WF1
 
 
             }
-            //label2.Text = jourCourant.ToString();
-            /*TreeView T = jourCourant.Tree;
-            treeView1 = T;*/
-           // treeView1.Refresh();
         }
 
-        private void dataGridView1_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-
-        }
 
         private void bt_cent_Click(object sender, EventArgs e)
         {

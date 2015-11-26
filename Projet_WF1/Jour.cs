@@ -10,7 +10,7 @@ namespace Projet_WF1
 {
     class Jour
     {
-        private List<Activite> _listAct;
+        private List<ActJour> _listAct;
         private int _num;
         private Activite[] _tabAct;
         private TreeView _tree;
@@ -22,7 +22,7 @@ namespace Projet_WF1
         public Jour(int num,  XElement calendrierXml)
         {
             Num = num;
-            _listAct = new List<Activite>();
+            _listAct = new List<ActJour>();
             _tabAct = new Activite[148];
             _tree = new TreeView();
             _tree.Nodes.Clear();
@@ -84,25 +84,23 @@ namespace Projet_WF1
             }
         }
 
+        public List<ActJour> ListAct
+        {
+            get
+            {
+                return _listAct;
+            }
+
+            set
+            {
+                _listAct = value;
+            }
+        }
+
         public void addAct(Activite A, int heure, int min, int duree)
         {
-            /*_listAct.Add(A);
-            _tree.BeginUpdate();
-            foreach(TreeNode T in _tree.Nodes[heure].Nodes)
-            {
-                if (T.Text == min.ToString())
-                {
-                    T.Text += "   "+A.ToString();
-                }
-                    
-            }
-            _tree.EndUpdate();
-            _jourXml.Add(new XElement("Activite", new XElement(A.Nom),new XElement("Heure", heure.ToString()+"/"+min.ToString())));
-        */
-            for (int i = 0; i < duree / 10; i++)
-            {
-                _tabAct[(heure * 6) + (min / 10) + i] = A;
-            }
+
+            _listAct.Add(new ActJour(A, heure, min, duree));
     }
 
         
@@ -110,10 +108,10 @@ namespace Projet_WF1
         public override string ToString()
         {
             string ch = Num.ToString();
-            foreach(Activite A in _listAct)
+            /*foreach(Activite A in _listAct)
             {
                 ch += "\n"+A.Nom;
-            }
+            }*/
             return ch;
         }
     }
