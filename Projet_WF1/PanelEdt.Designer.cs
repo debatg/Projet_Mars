@@ -74,7 +74,7 @@ namespace Projet_WF1
             this.dataGridView1.ColumnHeadersVisible = false;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.AutoResizeRowHeadersWidth(System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders);
-
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // label1
             // 

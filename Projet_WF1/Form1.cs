@@ -98,14 +98,13 @@ namespace Projet_WF1
 
             Size S = panel1.Size;
             Point P = panel1.Location;
-            panel1 = (Panel)new PanelEdt(jourCourant, label2);
+            panel1 = new PanelEdt(jourCourant, label2);
             panel1.Location = P;
             panel1.Size = S;
             tabControl1.SelectTab(1);
             tabControl1.SelectedTab.Controls.Add(panel1);
             tabControl1.SelectedTab.Controls.SetChildIndex(panel1, 0);
         }
-
 
         private void btn_valid_Click(object sender, EventArgs e)
         {
@@ -118,9 +117,11 @@ namespace Projet_WF1
 
         private void bttn_modif_inser_Click(object sender, EventArgs e)
         {
+            var edt = panel1 as PanelEdt;
             textJour.Text = jourCourant.Num.ToString();
-           /* textHeure.Text = jourCourant.Tree.SelectedNode.Parent.Text;
-            textMin.Text = jourCourant.Tree.SelectedNode.Text;*/
+
+            textHeure.Text = edt.HeureSelect.ToString();
+            textMin.Text = edt.MinSelect.ToString();
             tabControl1.SelectTab(2);
         }
 
@@ -153,13 +154,13 @@ namespace Projet_WF1
             }
         }
 
-
         private void bt_cent_Click(object sender, EventArgs e)
         {
             var bttn = sender as Button;
             cent= int.Parse(bttn.Name.Split('_')[1])-1;
             // if(bttn.Name.Split('_')(5))
         }
+
         private void bt_dix_Click(object sender, EventArgs e)
         {
             var bttn = sender as Button;            

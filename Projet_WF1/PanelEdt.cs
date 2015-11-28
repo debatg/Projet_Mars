@@ -16,6 +16,7 @@ namespace Projet_WF1
         private Jour _jourCourant;
         private Label _l;
         private ActJour _actSelect;
+        private int _heureSelect, _minSelect;
 
         public PanelEdt(Jour J, Label L):base()
         {
@@ -56,7 +57,11 @@ namespace Projet_WF1
                 _l.Text = "";
 
                 if (ch[0] == A.Heure.ToString() && ch[1] == A.Min.ToString())
-                    _actSelect = A;                
+                {
+                    _actSelect = A;
+                    _heureSelect = A.Heure;
+                    _minSelect = A.Min;
+                }               
                 
             }
             AffichInfoAct();
@@ -75,6 +80,39 @@ namespace Projet_WF1
         protected override void OnPaint(PaintEventArgs pe)
         {
             base.OnPaint(pe);
+        }
+
+        public int HeureSelect
+        {
+            get
+            {
+                return _heureSelect;
+            }
+
+            set
+            {
+                _heureSelect = value;
+            }
+        }
+
+        public int MinSelect
+        {
+            get
+            {
+                return _minSelect;
+            }
+
+            set
+            {
+                _minSelect = value;
+            }
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            _heureSelect = int.Parse( dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString().Split('H')[0]);
+            _minSelect = int.Parse(dataGridView1.Rows[0].Cells[e.ColumnIndex].Value.ToString().Split('H','-')[0]);
+
         }
     }
 }
