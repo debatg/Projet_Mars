@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Projet_WF1
@@ -29,20 +31,22 @@ namespace Projet_WF1
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
+       
         private void InitializeComponent()
         {
+
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.LB = new List<Button>();
-            
-
+            this.Controls.Add(dataGridView1);
+            this.Controls.Add(label1);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(114, 35);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(586, 470);
             this.dataGridView1.ScrollBars = ScrollBars.None;
@@ -54,26 +58,28 @@ namespace Projet_WF1
             this.dataGridView1.CausesValidation = false;
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.RowCount = 26;
-             this.dataGridView1.ColumnCount = 7;
+            this.dataGridView1.ColumnCount = 7;
             this.dataGridView1.AutoResizeColumnHeadersHeight();
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            foreach (DataGridViewRow row in dataGridView1.Rows)
+            /*foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                row.Height = (dataGridView1.Height)/26;
+                row.Height = (dataGridView1.Height) / 26;
             }
-            for(int i=1;i<26;i++)
+            for (int i = 1; i < 26; i++)
             {
-                dataGridView1.Rows[i].Cells[0].Value=((i - 1).ToString() + "H");
+                dataGridView1.Rows[i].Cells[0].Value = ((i - 1).ToString() + "H");
             }
             for (int i = 1; i < 7; i++)
             {
-                dataGridView1.Rows[0].Cells[i].Value = ((i - 1).ToString() +"0-"+i.ToString()+ "0Min");
-            }
-            //this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
+                dataGridView1.Rows[0].Cells[i].Value = ((i - 1).ToString() + "0-" + i.ToString() + "0Min");
+            }*/
             this.dataGridView1.ColumnHeadersVisible = false;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.AutoResizeRowHeadersWidth(System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders);
-            
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
+            this.dataGridView1.MultiSelect = false;
+            this.dataGridView1.ReadOnly = true;
             // 
             // label1
             // 
@@ -89,20 +95,21 @@ namespace Projet_WF1
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(795, 512);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView1);
+
             this.Name = "Form2";
             this.Text = "Form2";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
-
-        #endregion
-
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
         private List<Button> LB;
+
+        public EventHandler dataGridView1_SelectionChanged { get; private set; }
+        public DataGridViewCellEventHandler dataGridView1_CellClick { get; private set; }
+
+        #endregion
+
     }
 }

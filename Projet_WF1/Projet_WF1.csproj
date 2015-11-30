@@ -50,6 +50,27 @@
     <Compile Include="Activite.cs" />
     <Compile Include="ActJour.cs" />
     <Compile Include="Astronaute.cs" />
+    <Compile Include="FormEdt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEdt.Designer.cs">
+      <DependentUpon>FormEdt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PanelAct.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PanelAct.Designer.cs">
+      <DependentUpon>PanelAct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PanelCalendrier.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PanelCalendrier.Designer.cs">
+      <DependentUpon>PanelCalendrier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PanelCentral.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="PanelEdt.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -85,6 +106,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form3.resx">
       <DependentUpon>Form3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEdt.resx">
+      <DependentUpon>FormEdt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

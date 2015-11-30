@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace Projet_WF1
 {
-    partial class PanelEdt :Panel
+    partial class PanelEdt : PanelCentral
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
@@ -32,13 +32,24 @@ namespace Projet_WF1
         /// </summary>
         private void InitializeComponent()
         {
-
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PanelEdt));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
+            this.bttn_Supprimer = new System.Windows.Forms.Button();
+            this.bttn_modif_inser = new System.Windows.Forms.Button();
             this.LB = new List<Button>();
+            this.btn_Previous = new System.Windows.Forms.PictureBox();
+            this.btn_Next = new System.Windows.Forms.PictureBox();
+
             this.Controls.Add(dataGridView1);
             this.Controls.Add(label1);
+            this.Controls.Add(this.bttn_modif_inser);
+            this.Controls.Add(this.bttn_Supprimer);
+            this.Controls.Add(btn_Next);
+            this.Controls.Add(btn_Previous);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Previous)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Next)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -75,15 +86,62 @@ namespace Projet_WF1
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.AutoResizeRowHeadersWidth(System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders);
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
+            this.dataGridView1.MultiSelect = false;
+            this.dataGridView1.ReadOnly = true;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(748, 12);
+            this.label1.Location = new System.Drawing.Point(592, 302);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "label1";
+            // 
+            // bttn_Supprimer
+            // 
+            this.bttn_Supprimer.Location = new System.Drawing.Point(592, 260);
+            this.bttn_Supprimer.Name = "bttn_Supprimer";
+            this.bttn_Supprimer.Size = new System.Drawing.Size(92, 23);
+            this.bttn_Supprimer.TabIndex = 16;
+            this.bttn_Supprimer.Text = "Supprimer";
+            this.bttn_Supprimer.UseVisualStyleBackColor = true;
+            // 
+            // bttn_modif_inser
+            // 
+            this.bttn_modif_inser.Location = new System.Drawing.Point(592, 217);
+            this.bttn_modif_inser.Name = "bttn_modif_inser";
+            this.bttn_modif_inser.Size = new System.Drawing.Size(92, 23);
+            this.bttn_modif_inser.TabIndex = 15;
+            this.bttn_modif_inser.Text = "Modifier/Insérer";
+            this.bttn_modif_inser.UseVisualStyleBackColor = true;
+            this.bttn_modif_inser.Click += new System.EventHandler(this.bttn_modif_inser_Click);
+            // 
+            // btn_Previous
+            // 
+            //this.btn_Previous.Image = ((System.Drawing.Image)(resources.GetObject("btn_Previous.Image")));
+            this.btn_Previous.Image = Image.FromFile("images/arrowhead7.png");
+
+            this.btn_Previous.Location = new System.Drawing.Point(166, 476);
+            this.btn_Previous.Name = "btn_Previous";
+            this.btn_Previous.Size = new System.Drawing.Size(50, 50);
+            this.btn_Previous.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btn_Previous.TabIndex = 18;
+            this.btn_Previous.TabStop = false;
+            this.btn_Previous.Click += new System.EventHandler(this.btn_Previous_Click);
+            // 
+            // btn_Next
+            // 
+            //this.btn_Next.Image = ((System.Drawing.Image)(resources.GetObject("btn_Next.Image")));
+            this.btn_Next.Image = Image.FromFile("images/right-arrow26.png");
+            this.btn_Next.Location = new System.Drawing.Point(287, 476);
+            this.btn_Next.Name = "btn_Next";
+            this.btn_Next.Size = new System.Drawing.Size(50, 50);
+            this.btn_Next.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btn_Next.TabIndex = 19;
+            this.btn_Next.TabStop = false;
+            this.btn_Next.Click += new System.EventHandler(this.btn_Next_Click);
             // 
             // Form2
             // 
@@ -100,11 +158,18 @@ namespace Projet_WF1
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();*/
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Previous)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Next)).EndInit();
 
         }
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button bttn_Supprimer;
+        private System.Windows.Forms.Button bttn_modif_inser;
         private List<Button> LB;
+        private PictureBox btn_Previous;
+        private PictureBox btn_Next;
 
         #endregion
     }

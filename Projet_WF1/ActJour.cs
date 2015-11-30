@@ -9,13 +9,16 @@ namespace Projet_WF1
     class ActJour
     {
         private Activite _act;
-        private int _heure, _min, _duree;
+        private int _heure, _min, _duree, _heureFin, _minFin;
+        //private int DateTime _debut, _fin;
         public ActJour(Activite A, int heure, int min, int duree)
         {
             _act = A;
             _heure = heure;
             _min = min;
             _duree = duree;
+            _heureFin = _heure + (_min + _duree) / 60;
+            _minFin= (_min + _duree) % 60;
         }
 
         public int Duree
@@ -44,6 +47,19 @@ namespace Projet_WF1
             }
         }
 
+        public int HeureFin
+        {
+            get
+            {
+                return _heureFin;
+            }
+
+            set
+            {
+                _heureFin = value;
+            }
+        }
+
         public int Min
         {
             get
@@ -54,6 +70,19 @@ namespace Projet_WF1
             set
             {
                 _min = value;
+            }
+        }
+
+        public int MinFin
+        {
+            get
+            {
+                return _minFin;
+            }
+
+            set
+            {
+                _minFin = value;
             }
         }
 

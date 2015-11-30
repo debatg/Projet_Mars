@@ -19,3 +19,4 @@ C:\Users\Guillaume\Desktop\ENSC_2A\^2A^\^S7^\Genie Log\Projet\Projet_WF1\Projet_
 C:\Users\Guillaume\Desktop\ENSC_2A\^2A^\^S7^\Genie Log\Projet\Projet_WF1\Projet_Mars\Projet_WF1\obj\Debug\Projet_WF1.Properties.Resources.resources
 C:\Users\Guillaume\Desktop\ENSC_2A\^2A^\^S7^\Genie Log\Projet\Projet_WF1\Projet_Mars\Projet_WF1\obj\Debug\Projet_WF1.csproj.GenerateResource.Cache
 C:\Users\Guillaume\Desktop\ENSC_2A\^2A^\^S7^\Genie Log\Projet\Projet_WF1\Projet_Mars\Projet_WF1\obj\Debug\Projet_WF1.Form3.resources
+C:\Users\Guillaume\Desktop\ENSC_2A\^2A^\^S7^\Genie Log\Projet\Projet_WF1\Projet_Mars\Projet_WF1\obj\Debug\Projet_WF1.FormEdt.resources

@@ -31,5 +31,10 @@ namespace Projet_WF1
         {
 
         }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
