@@ -57,6 +57,11 @@ namespace Projet_WF1
                             AddActBtn(1, A.Heure + 1, 6, A.HeureFin - A.Heure , txt);
 
                         }
+                        else
+                        {
+                            AddActBtn((A.Min / 10) + 1, A.Heure + 1, (60-A.Min)/10,1, txt);
+
+                        }
                         AddActBtn(1, A.HeureFin + 1, A.MinFin/10,  1, txt);
 
                     }

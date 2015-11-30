@@ -12,12 +12,13 @@ namespace Projet_WF1
     {
         protected static XDocument _docXml;
         protected static List<Jour> _list_Jour;
-        protected XElement _jourXml = new XElement("Jour");
-        protected XElement _actXml = new XElement("Activité");
-        protected XElement _astroXml = new XElement("Astronaute");
-        protected XElement _calendrierXml = new XElement("Calendrier");
+        protected static List<Activite> _list_Act;
+        protected static XElement _jourXml = new XElement("Jour");
+        protected static XElement _actXml = new XElement("Activité");
+        protected static XElement _astroXml = new XElement("Astronaute");
+        protected static XElement _calendrierXml = new XElement("Calendrier");
         protected static Jour _jourCourant=null;
-        protected Panel _panelCentre;
+        protected static Panel _panelCentre;
         protected static PanelAct pa;
         protected static PanelCalendrier pc;
         protected static PanelEdt pe;
@@ -26,13 +27,18 @@ namespace Projet_WF1
 
         public PanelCentral():base()
         {
-            _docXml = new XDocument(_calendrierXml);
+            //_docXml = new XDocument(_calendrierXml);
             
             //InitXml();
         }
-        private void InitXml(object sender, EventArgs e)
+        /*private void InitXml(object sender, EventArgs e)
         {
             _docXml = new XDocument(_calendrierXml);
+        }*/
+
+        public void SaveXml()
+        {
+            _docXml.Save("calendrier.xml");
         }
 
         protected void changePanel(int index)

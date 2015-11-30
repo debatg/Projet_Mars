@@ -14,35 +14,30 @@ namespace Projet_WF1
         private int _num;
         private Activite[] _tabAct;
         private TreeView _tree;
-        private XElement _calendrierXml;
-        private XElement _jourXml = new XElement("Jour");
-        private XElement _actXml = new XElement("Activité");
+        private static XDocument _calendrierXml=null;
+        private XElement _jourXml;
+        private XElement _actXml ;
         private XElement _astroXml = new XElement("Astronaute");
 
-        public Jour(int num,  XElement calendrierXml)
+        public Jour(int num, XDocument calendrierXml, List<ActJour> LA)
         {
             Num = num;
-            _listAct = new List<ActJour>();
-            _tabAct = new Activite[148];
-            _tree = new TreeView();
-            _tree.Nodes.Clear();
-            _tree.BeginUpdate();
-            for (int i= 0;i<=24;i++)
+            _listAct = LA;
+            if (_calendrierXml == null)
+                _calendrierXml = calendrierXml;
+            var jour = from a in calendrierXml.Descendants("Jour")
+                       select a;
+            foreach (XElement e in jour)
             {
-                _tree.Nodes.Add(new TreeNode(i.ToString()));
-                for(int a=0;a<=5;a++)
-                {
-                    //_tree.Nodes[i].Nodes.Add(a.ToString() + "0");
-                    _tree.Nodes[i].Nodes.Add(new TreeNode(a.ToString() + "0"));
-
-                }
+                if (e.FirstAttribute.Value == num.ToString())
+                    _jourXml = e;
             }
-            _tree.EndUpdate();
+        }
 
-            _calendrierXml = calendrierXml;
-            _jourXml.SetAttributeValue("num", num);
-            //_calendrierXml.Add(new XElement("Jour", new XAttribute("num", num.ToString())));
-            _calendrierXml.Add(_jourXml);
+        public Jour(int num, XDocument calendrierXml):this(num, calendrierXml, new List<ActJour>())
+        {
+            _jourXml = new XElement("Jour", new XAttribute("num", num.ToString()));
+            _calendrierXml.Element("Calendrier").Add(_jourXml);
         }
 
         public int Num
@@ -99,9 +94,10 @@ namespace Projet_WF1
 
         public void addAct(Activite A, int heure, int min, int duree)
         {
-
             _listAct.Add(new ActJour(A, heure, min, duree));
-    }
+            _actXml = new XElement("Activité", new XElement("Nom", A.Nom), new XElement("Heure", heure), new XElement("Min", min), new XElement("Duree", duree));
+            _jourXml.Add(_actXml);            
+        }
 
         
 

@@ -16,7 +16,7 @@ namespace Projet_WF1
     {
         //private Jour _jourCourant;
         //private XDocument _docXml;
-        private List<Activite> _list_Act;
+        
         private Panel _panelPrec;
 
 
@@ -26,19 +26,20 @@ namespace Projet_WF1
             InitializeComponent();
             
             //_docXml = docXml;
-            _list_Act = new List<Activite>();
-            _list_Act.Add(new Activite("test"));
+            /*_list_Act = new List<Activite>();
+            _list_Act.Add(new Activite("test"));*/
             listBox1.Items.Add("test");
             listBox1.Items.Add("test2");
-            _list_Act.Add(new Activite("test2"));
+            //_list_Act.Add(new Activite("test2"));
         }
 
         private void btn_valid_Click(object sender, EventArgs e)
         {
             _jourCourant.addAct(_list_Act[listBox1.SelectedIndex], int.Parse(textHeure.Text), int.Parse(textMin.Text), int.Parse(textDuree.Text));
             //tabControl1.SelectTab(1);
-            _docXml.Save(Directory.GetCurrentDirectory() + "/calendrier.xml");
+            //_docXml.Save(Directory.GetCurrentDirectory() + "/calendrier.xml");
             //InitEdt();
+            SaveXml();
             changePanel(2);
 
         }

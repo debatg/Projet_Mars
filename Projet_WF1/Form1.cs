@@ -71,16 +71,7 @@ namespace Projet_WF1
             //panelCal._eventEdt += new EventHandler(page2);
         }
 
-        private void page2(object sender, EventArgs e)
-        {
-            panelEdt = new PanelEdt();
-            panelEdt.Visible = false;
-            panelEdt.Location = P;
-            panelEdt.Size = S;
-            panelCal.Visible = false;
-            panelEdt.Visible = true;
-
-        }
+        
 
         /*private void InitXml(object sender, EventArgs e)
         {
