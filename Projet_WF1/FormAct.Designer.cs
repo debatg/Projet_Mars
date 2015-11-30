@@ -1,18 +1,18 @@
-﻿using System.Drawing;
+﻿using System;
 
 namespace Projet_WF1
 {
-    partial class PanelAct
+    partial class FormAct
     {
         /// <summary>
-        /// Variable nécessaire au concepteur.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Nettoyage des ressources utilisées.
+        /// Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">true si les ressources managées doivent être supprimées ; sinon, false.</param>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,16 +22,17 @@ namespace Projet_WF1
             base.Dispose(disposing);
         }
 
-        #region Code généré par le Concepteur de composants
+        #region Windows Form Designer generated code
 
         /// <summary>
-        /// Méthode requise pour la prise en charge du concepteur - ne modifiez pas 
-        /// le contenu de cette méthode avec l'éditeur de code.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
+        
+
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAct));
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.textDuree = new System.Windows.Forms.TextBox();
@@ -52,27 +53,7 @@ namespace Projet_WF1
             this.textBoxY = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureCroix)).BeginInit();
-
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textDuree);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.textJour);
-            this.Controls.Add(this.textMin);
-            this.Controls.Add(this.btn_valid);
-            this.Controls.Add(this.textHeure);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.textBoxY);
-            this.Controls.Add(this.textBoxX);
-            this.Controls.Add(this.labelY);
-            this.Controls.Add(this.labelX);
-            this.Controls.Add(this.labelCoord);
-
-
-
+            this.SuspendLayout();
             // 
             // label7
             // 
@@ -170,7 +151,7 @@ namespace Projet_WF1
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = Image.FromFile("images/nanedi valles.jpg");
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(335, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(218, 410);
@@ -178,19 +159,15 @@ namespace Projet_WF1
             this.pictureBox1.TabIndex = 27;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            this.pictureBox1.Controls.Add(pictureCroix);
             // 
             // pictureCroix
             // 
-            this.pictureCroix.Image = Image.FromFile("images/cross106.png");
             this.pictureCroix.Location = new System.Drawing.Point(654, 144);
             this.pictureCroix.Name = "pictureCroix";
             this.pictureCroix.Size = new System.Drawing.Size(24, 24);
             this.pictureCroix.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureCroix.TabIndex = 28;
             this.pictureCroix.TabStop = false;
-            this.pictureCroix.Visible = false;
-            this.pictureCroix.BackColor = Color.Transparent;
             // 
             // labelCoord
             // 
@@ -225,8 +202,7 @@ namespace Projet_WF1
             this.textBoxX.Name = "textBoxX";
             this.textBoxX.Size = new System.Drawing.Size(32, 20);
             this.textBoxX.TabIndex = 32;
-            this.textBoxX.TextChanged += new System.EventHandler(this.textBoxCoord_TextChanged);
-
+            this.textBoxX.TextChanged += new System.EventHandler(this.textBoxX_TextChanged);
             // 
             // textBoxY
             // 
@@ -234,10 +210,42 @@ namespace Projet_WF1
             this.textBoxY.Name = "textBoxY";
             this.textBoxY.Size = new System.Drawing.Size(32, 20);
             this.textBoxY.TabIndex = 33;
-            this.textBoxY.TextChanged += new System.EventHandler(this.textBoxCoord_TextChanged);
-
+            // 
+            // FormAct
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1362, 694);
+            this.Controls.Add(this.textBoxY);
+            this.Controls.Add(this.textBoxX);
+            this.Controls.Add(this.labelY);
+            this.Controls.Add(this.labelX);
+            this.Controls.Add(this.labelCoord);
+            this.Controls.Add(this.pictureCroix);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.textDuree);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.textJour);
+            this.Controls.Add(this.textMin);
+            this.Controls.Add(this.btn_valid);
+            this.Controls.Add(this.textHeure);
+            this.Controls.Add(this.listBox1);
+            this.Name = "FormAct";
+            this.Text = "FormAct";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureCroix)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        private void btn_valid_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion
@@ -260,6 +268,5 @@ namespace Projet_WF1
         private System.Windows.Forms.Label labelY;
         private System.Windows.Forms.TextBox textBoxX;
         private System.Windows.Forms.TextBox textBoxY;
-
     }
 }

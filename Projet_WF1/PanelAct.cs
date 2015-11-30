@@ -53,6 +53,25 @@ namespace Projet_WF1
             textMin.Text = min.ToString();
             
         }
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            var mouseEventArgs = e as MouseEventArgs;
+            Point P = new Point(mouseEventArgs.X - pictureCroix.Size.Width / 2, mouseEventArgs.Y - pictureCroix.Size.Width / 2);
+            pictureCroix.Location = P;
+            pictureCroix.Visible = true;
+            textBoxX.Text = (mouseEventArgs.X - 700 / 5).ToString();
+            textBoxY.Text = ((1000 / 5)-mouseEventArgs.Y ).ToString();
+
+        }
+
+        private void textBoxCoord_TextChanged(object sender, EventArgs e)
+        {
+            if (textBoxX.Text != "" && textBoxY.Text != "")
+            {
+                Point P = new Point(int.Parse(textBoxX.Text) + (700 / 5) - pictureCroix.Size.Width / 2, -int.Parse(textBoxY.Text) + (1000 / 5) - pictureCroix.Size.Width / 2);
+            pictureCroix.Location = P;
+            pictureCroix.Visible = true; }
+        }
 
         public Jour JourCourant
         {

@@ -33,7 +33,6 @@ namespace Projet_WF1
         private Jour jourCourant = null;
 
 
-        private Form2 F2;
         public Form1()
         {
             InitializeComponent();
