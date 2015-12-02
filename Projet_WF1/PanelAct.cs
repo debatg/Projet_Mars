@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 using System.Xml.Linq;
 
 namespace Projet_WF1
@@ -18,29 +20,79 @@ namespace Projet_WF1
         //private XDocument _docXml;
         
         private Panel _panelPrec;
+        XmlDocument xmlDocument;
+
 
 
 
         public PanelAct() :base()
         {
             InitializeComponent();
-            
-            //_docXml = docXml;
-            /*_list_Act = new List<Activite>();
-            _list_Act.Add(new Activite("test"));*/
             listBox1.Items.Add("test");
             listBox1.Items.Add("test2");
-            //_list_Act.Add(new Activite("test2"));
+            ChargeActXml();
+        }
+
+        private void ChargeActXml()
+        {
+
+
+            xmlDocument = new XmlDocument();
+
+            xmlDocument.Load("Astro_Activites.xml");
+            treeView1.Nodes.Clear();
+
+            XmlRekursivImport(treeView1.Nodes, xmlDocument.DocumentElement.ChildNodes);
+            foreach(TreeNode T in treeView1.Nodes)
+            {
+                if (T.Text != "ListActivity")
+                    T.Remove();
+            }
+            treeView1.ExpandAll();
+        }
+
+        private void XmlRekursivImport(TreeNodeCollection elem, XmlNodeList xmlNodeList)
+        {
+            TreeNode treeNode;
+            
+            foreach (XmlNode myXmlNode in xmlNodeList)
+            {
+                Debug.WriteLine(xmlNodeList.Count);
+
+                if (myXmlNode.ChildNodes.Count > 0)
+                {
+                    if (myXmlNode.Name != "Activity")
+                    {
+                        treeNode = new TreeNode(myXmlNode.Name);
+                    }
+                    else
+                    {
+                        treeNode = new TreeNode(myXmlNode.FirstChild.Value);
+                        _list_Act.Add(new Activite(myXmlNode.FirstChild.Value));
+
+                    }
+                    elem.Add(treeNode);
+
+                    XmlRekursivImport(treeNode.Nodes, myXmlNode.ChildNodes);
+                }
+                
+                
+            }
         }
 
         private void btn_valid_Click(object sender, EventArgs e)
         {
-            _jourCourant.addAct(_list_Act[listBox1.SelectedIndex], int.Parse(textHeure.Text), int.Parse(textMin.Text), int.Parse(textDuree.Text));
-            //tabControl1.SelectTab(1);
-            //_docXml.Save(Directory.GetCurrentDirectory() + "/calendrier.xml");
-            //InitEdt();
-            SaveXml();
-            changePanel(2);
+            foreach(Activite A in _list_Act)
+            {
+                if (A.Nom==textBoxAct.Text)
+                {
+
+                    _jourCourant.addAct(A, int.Parse(textHeure.Text), int.Parse(textMin.Text), int.Parse(textDuree.Text));
+
+                    SaveXml();
+                    changePanel(2);
+                }
+            }
 
         }
 
@@ -53,6 +105,7 @@ namespace Projet_WF1
             textMin.Text = min.ToString();
             
         }
+
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             var mouseEventArgs = e as MouseEventArgs;
@@ -62,6 +115,14 @@ namespace Projet_WF1
             textBoxX.Text = (mouseEventArgs.X - 700 / 5).ToString();
             textBoxY.Text = ((1000 / 5)-mouseEventArgs.Y ).ToString();
 
+        }
+
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            if(e.Node.Nodes.Count==0)
+            {
+                textBoxAct.Text = e.Node.Text;
+            }
         }
 
         private void textBoxCoord_TextChanged(object sender, EventArgs e)

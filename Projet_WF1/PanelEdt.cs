@@ -189,6 +189,8 @@ namespace Projet_WF1
                 }
             }
             _jourCourant = test;
+            TB.Text = _jourCourant.Num.ToString();
+
             dataGridView1.Controls.Clear();
             InitGrid();
 
@@ -206,6 +208,8 @@ namespace Projet_WF1
                 }
             }
             _jourCourant = test;
+            TB.Text = _jourCourant.Num.ToString();
+
             dataGridView1.Controls.Clear();
             InitGrid();            
         }

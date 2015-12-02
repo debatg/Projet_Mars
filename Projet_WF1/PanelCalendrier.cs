@@ -23,10 +23,11 @@ namespace Projet_WF1
         public event EventHandler _eventEdt=null;
 
 
-        public PanelCalendrier(Panel panelcentre):base()
+        public PanelCalendrier(TextBox T):base()
         {
             InitializeComponent();
-            _panelCentre = panelcentre;
+            TB = T;
+            //_panelCentre = panelcentre;
             /*Size S = panelcentre.Size;
             Point P = panelcentre.Location;
             _panelCentre.Location = P;
@@ -101,6 +102,7 @@ namespace Projet_WF1
                     _jourCourant = J;
                 }
             }
+            TB.Text = _jourCourant.Num.ToString();
             changePanel(2);
 
             //this._eventEdt(this, new EventArgs());
@@ -128,7 +130,7 @@ namespace Projet_WF1
             {
                 _docXml = XDocument.Load("calendrier.xml");
                 la.Text += "ok";
-                ChargeXml();
+                ChargeEdtXml();
             }
             else
             {
@@ -141,17 +143,16 @@ namespace Projet_WF1
                     i++;
                 }
             }
+            _docActXml = XDocument.Load("Astro_Activites.xml");
         }
 
-        private void ChargeXml()
+        private void ChargeEdtXml()
         {
             var branches = from a in _docXml.Descendants("Jour")
                           select a;
-            int aaa = 0;
 
             foreach (XElement e in branches)
             {
-                aaa++;
                 List<ActJour> listAJ = new List<ActJour>();
                 int num = int.Parse(e.FirstAttribute.Value);
                 //la.Text =e.FirstAttribute.Value;
@@ -178,6 +179,21 @@ namespace Projet_WF1
 
             }
         }
+
+        public void setJourCourant(int num)
+        {
+                foreach (Jour J in _list_Jour)
+                {
+                    if (J.Num == num)
+                    {
+
+                        _jourCourant = J;
+                    }
+                }
+                changePanel(2);
+            }
+        
+        
 
         protected override void OnPaint(PaintEventArgs pe)
         {
