@@ -182,7 +182,7 @@ namespace Projet_WF1
             this.flowLayoutPanel3.Controls.Add(this.bt_71_80);
             this.flowLayoutPanel3.Controls.Add(this.bt_81_90);
             this.flowLayoutPanel3.Controls.Add(this.bt_91_100);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(120, 0);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(120, 79);
             this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(659, 29);
@@ -270,7 +270,7 @@ namespace Projet_WF1
             this.flowLayoutPanel2.Controls.Add(this.bt_21_30);
             this.flowLayoutPanel2.Controls.Add(this.bt_31_40);
             this.flowLayoutPanel2.Controls.Add(this.bt_41_50);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(120, 79);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(120, 50);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(659, 29);
@@ -358,7 +358,7 @@ namespace Projet_WF1
             this.flowLayoutPanel1.Controls.Add(this.bt_201_300);
             this.flowLayoutPanel1.Controls.Add(this.bt_301_400);
             this.flowLayoutPanel1.Controls.Add(this.bt_401_500);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(120, 32);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(120, 1);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(659, 46);
             this.flowLayoutPanel1.TabIndex = 11;

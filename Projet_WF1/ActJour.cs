@@ -9,16 +9,45 @@ namespace Projet_WF1
     class ActJour
     {
         private Activite _act;
+        private List<Astronaute> _listA;
         private int _heure, _min, _duree, _heureFin, _minFin;
-        //private int DateTime _debut, _fin;
-        public ActJour(Activite A, int heure, int min, int duree)
+        private int _x, _y;
+        private bool _ext;
+        private string _descript;
+         
+        /*public ActJour(Activite A, List<Astronaute> LA , int heure, int min, int duree, int x , int y)
         {
             _act = A;
             _heure = heure;
             _min = min;
             _duree = duree;
+            _listA = LA;
             _heureFin = _heure + (_min + _duree) / 60;
             _minFin= (_min + _duree) % 60;
+            _x = x;
+            _y=y;
+            if (_x != 0 || _y != 0)
+                _ext = true;
+            else
+                _ext = false;
+        }*/
+
+        public ActJour(Activite A, List<Astronaute> LA, int heure, int min, int heure_fin, int min_fin , int x, int y, string descript)
+        {
+            _act = A;
+            _heure = heure;
+            _min = min;
+            _duree = ((heure_fin - heure) * 60) + (min_fin - min);
+            _listA = LA;
+            _heureFin = heure_fin;
+            _minFin = min_fin;
+            _x = x;
+            _y = y;
+            _descript = descript;
+            if (_x != 0 || _y != 0)
+                _ext = true;
+            else
+                _ext = false;
         }
 
         public int Duree
@@ -86,7 +115,7 @@ namespace Projet_WF1
             }
         }
 
-        internal Activite Act
+        public Activite Act
         {
             get
             {
@@ -96,6 +125,71 @@ namespace Projet_WF1
             set
             {
                 _act = value;
+            }
+        }
+
+        public bool Ext
+        {
+            get
+            {
+                return _ext;
+            }
+
+            set
+            {
+                _ext = value;
+            }
+        }
+
+        public int X
+        {
+            get
+            {
+                return _x;
+            }
+
+            set
+            {
+                _x = value;
+            }
+        }
+
+        public int Y
+        {
+            get
+            {
+                return _y;
+            }
+
+            set
+            {
+                _y = value;
+            }
+        }
+
+        public List<Astronaute> ListA
+        {
+            get
+            {
+                return _listA;
+            }
+
+            set
+            {
+                _listA = value;
+            }
+        }
+
+        public string Descript
+        {
+            get
+            {
+                return _descript;
+            }
+
+            set
+            {
+                _descript = value;
             }
         }
     }

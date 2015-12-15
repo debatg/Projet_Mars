@@ -54,6 +54,8 @@ namespace Projet_WF1
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_Previous = new System.Windows.Forms.PictureBox();
             this.btn_Next = new System.Windows.Forms.PictureBox();
+            this.buttonCR = new System.Windows.Forms.Button();
+            this.btnDescr = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Previous)).BeginInit();
@@ -127,7 +129,7 @@ namespace Projet_WF1
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(592, 302);
+            this.label1.Location = new System.Drawing.Point(589, 302);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 1;
@@ -141,6 +143,7 @@ namespace Projet_WF1
             this.bttn_Supprimer.TabIndex = 16;
             this.bttn_Supprimer.Text = "Supprimer";
             this.bttn_Supprimer.UseVisualStyleBackColor = true;
+            this.bttn_Supprimer.Click += new System.EventHandler(this.bttn_Supprimer_Click);
             // 
             // bttn_modif_inser
             // 
@@ -182,9 +185,31 @@ namespace Projet_WF1
             this.btn_Next.TabStop = false;
             this.btn_Next.Click += new System.EventHandler(this.btn_Next_Click);
             // 
+            // buttonCR
+            // 
+            this.buttonCR.Location = new System.Drawing.Point(592, 119);
+            this.buttonCR.Name = "buttonCR";
+            this.buttonCR.Size = new System.Drawing.Size(92, 23);
+            this.buttonCR.TabIndex = 20;
+            this.buttonCR.Text = "CompteRendu";
+            this.buttonCR.UseVisualStyleBackColor = true;
+            this.buttonCR.Click += new System.EventHandler(this.buttonCR_Click);
+            // 
+            // btnDescr
+            // 
+            this.btnDescr.Location = new System.Drawing.Point(593, 149);
+            this.btnDescr.Name = "btnDescr";
+            this.btnDescr.Size = new System.Drawing.Size(91, 23);
+            this.btnDescr.TabIndex = 21;
+            this.btnDescr.Text = "Description";
+            this.btnDescr.UseVisualStyleBackColor = true;
+            this.btnDescr.Click += new System.EventHandler(this.btnDescr_Click);
+            // 
             // FormEdt
             // 
             this.ClientSize = new System.Drawing.Size(766, 535);
+            this.Controls.Add(this.btnDescr);
+            this.Controls.Add(this.buttonCR);
             this.Controls.Add(this.btn_Next);
             this.Controls.Add(this.btn_Previous);
             this.Controls.Add(this.pictureBox1);
@@ -235,5 +260,7 @@ namespace Projet_WF1
         private PictureBox pictureBox1;
         private PictureBox btn_Previous;
         private PictureBox btn_Next;
+        private Button buttonCR;
+        private Button btnDescr;
     }
 }

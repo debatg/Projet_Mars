@@ -33,10 +33,6 @@ namespace Projet_WF1
 
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAct));
-            this.label7 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textDuree = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -54,39 +50,22 @@ namespace Projet_WF1
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.labelAct = new System.Windows.Forms.Label();
             this.textBoxAct = new System.Windows.Forms.TextBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.labelAstro = new System.Windows.Forms.Label();
+            this.textBoxHeureFin = new System.Windows.Forms.TextBox();
+            this.textBoxMinfFin = new System.Windows.Forms.TextBox();
+            this.labelHF = new System.Windows.Forms.Label();
+            this.labelMF = new System.Windows.Forms.Label();
+            this.richTextBoxDescript = new System.Windows.Forms.RichTextBox();
+            this.labelDescipt = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureCroix)).BeginInit();
             this.SuspendLayout();
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(286, 72);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(23, 13);
-            this.label7.TabIndex = 26;
-            this.label7.Text = "min";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(210, 69);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(36, 13);
-            this.label3.TabIndex = 25;
-            this.label3.Text = "Durée";
-            // 
-            // textDuree
-            // 
-            this.textDuree.Location = new System.Drawing.Point(252, 66);
-            this.textDuree.Name = "textDuree";
-            this.textDuree.Size = new System.Drawing.Size(27, 20);
-            this.textDuree.TabIndex = 24;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(310, 46);
+            this.label6.Location = new System.Drawing.Point(307, 50);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(23, 13);
             this.label6.TabIndex = 23;
@@ -95,7 +74,7 @@ namespace Projet_WF1
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(240, 46);
+            this.label5.Location = new System.Drawing.Point(237, 50);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(39, 13);
             this.label5.TabIndex = 22;
@@ -120,7 +99,7 @@ namespace Projet_WF1
             // 
             // textMin
             // 
-            this.textMin.Location = new System.Drawing.Point(280, 43);
+            this.textMin.Location = new System.Drawing.Point(277, 47);
             this.textMin.Name = "textMin";
             this.textMin.Size = new System.Drawing.Size(24, 20);
             this.textMin.TabIndex = 18;
@@ -128,7 +107,7 @@ namespace Projet_WF1
             // 
             // btn_valid
             // 
-            this.btn_valid.Location = new System.Drawing.Point(225, 282);
+            this.btn_valid.Location = new System.Drawing.Point(233, 387);
             this.btn_valid.Name = "btn_valid";
             this.btn_valid.Size = new System.Drawing.Size(75, 23);
             this.btn_valid.TabIndex = 17;
@@ -138,7 +117,7 @@ namespace Projet_WF1
             // 
             // textHeure
             // 
-            this.textHeure.Location = new System.Drawing.Point(213, 43);
+            this.textHeure.Location = new System.Drawing.Point(210, 47);
             this.textHeure.Name = "textHeure";
             this.textHeure.Size = new System.Drawing.Size(24, 20);
             this.textHeure.TabIndex = 16;
@@ -146,7 +125,6 @@ namespace Projet_WF1
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = Image.FromFile("images/nanedi valles.jpg");
             this.pictureBox1.Location = new System.Drawing.Point(371, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(218, 410);
@@ -157,7 +135,6 @@ namespace Projet_WF1
             // 
             // pictureCroix
             // 
-            this.pictureCroix.Image = Image.FromFile("images/cross106.png");
             this.pictureCroix.Location = new System.Drawing.Point(654, 144);
             this.pictureCroix.Name = "pictureCroix";
             this.pictureCroix.Size = new System.Drawing.Size(24, 24);
@@ -169,7 +146,7 @@ namespace Projet_WF1
             // 
             this.labelCoord.AutoSize = true;
             this.labelCoord.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCoord.Location = new System.Drawing.Point(230, 186);
+            this.labelCoord.Location = new System.Drawing.Point(223, 172);
             this.labelCoord.Name = "labelCoord";
             this.labelCoord.Size = new System.Drawing.Size(81, 13);
             this.labelCoord.TabIndex = 29;
@@ -178,7 +155,7 @@ namespace Projet_WF1
             // labelX
             // 
             this.labelX.AutoSize = true;
-            this.labelX.Location = new System.Drawing.Point(217, 214);
+            this.labelX.Location = new System.Drawing.Point(229, 191);
             this.labelX.Name = "labelX";
             this.labelX.Size = new System.Drawing.Size(14, 13);
             this.labelX.TabIndex = 30;
@@ -187,7 +164,7 @@ namespace Projet_WF1
             // labelY
             // 
             this.labelY.AutoSize = true;
-            this.labelY.Location = new System.Drawing.Point(217, 241);
+            this.labelY.Location = new System.Drawing.Point(229, 218);
             this.labelY.Name = "labelY";
             this.labelY.Size = new System.Drawing.Size(14, 13);
             this.labelY.TabIndex = 31;
@@ -195,7 +172,7 @@ namespace Projet_WF1
             // 
             // textBoxX
             // 
-            this.textBoxX.Location = new System.Drawing.Point(247, 211);
+            this.textBoxX.Location = new System.Drawing.Point(259, 188);
             this.textBoxX.Name = "textBoxX";
             this.textBoxX.Size = new System.Drawing.Size(32, 20);
             this.textBoxX.TabIndex = 32;
@@ -203,7 +180,7 @@ namespace Projet_WF1
             // 
             // textBoxY
             // 
-            this.textBoxY.Location = new System.Drawing.Point(247, 238);
+            this.textBoxY.Location = new System.Drawing.Point(259, 215);
             this.textBoxY.Name = "textBoxY";
             this.textBoxY.Size = new System.Drawing.Size(32, 20);
             this.textBoxY.TabIndex = 33;
@@ -220,7 +197,7 @@ namespace Projet_WF1
             // 
             this.labelAct.AutoSize = true;
             this.labelAct.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAct.Location = new System.Drawing.Point(230, 113);
+            this.labelAct.Location = new System.Drawing.Point(237, 114);
             this.labelAct.Name = "labelAct";
             this.labelAct.Size = new System.Drawing.Size(50, 13);
             this.labelAct.TabIndex = 35;
@@ -228,16 +205,93 @@ namespace Projet_WF1
             // 
             // textBoxAct
             // 
-            this.textBoxAct.Location = new System.Drawing.Point(209, 129);
+            this.textBoxAct.Location = new System.Drawing.Point(216, 130);
             this.textBoxAct.Name = "textBoxAct";
             this.textBoxAct.Size = new System.Drawing.Size(100, 20);
             this.textBoxAct.TabIndex = 36;
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(213, 274);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(120, 95);
+            this.listBox1.TabIndex = 37;
+            // 
+            // labelAstro
+            // 
+            this.labelAstro.AutoSize = true;
+            this.labelAstro.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAstro.Location = new System.Drawing.Point(227, 258);
+            this.labelAstro.Name = "labelAstro";
+            this.labelAstro.Size = new System.Drawing.Size(74, 13);
+            this.labelAstro.TabIndex = 38;
+            this.labelAstro.Text = "Astronautes";
+            // 
+            // textBoxHeureFin
+            // 
+            this.textBoxHeureFin.Location = new System.Drawing.Point(210, 69);
+            this.textBoxHeureFin.Name = "textBoxHeureFin";
+            this.textBoxHeureFin.Size = new System.Drawing.Size(24, 20);
+            this.textBoxHeureFin.TabIndex = 39;
+            // 
+            // textBoxMinfFin
+            // 
+            this.textBoxMinfFin.Location = new System.Drawing.Point(277, 74);
+            this.textBoxMinfFin.Name = "textBoxMinfFin";
+            this.textBoxMinfFin.Size = new System.Drawing.Size(29, 20);
+            this.textBoxMinfFin.TabIndex = 40;
+            // 
+            // labelHF
+            // 
+            this.labelHF.AutoSize = true;
+            this.labelHF.Location = new System.Drawing.Point(240, 75);
+            this.labelHF.Name = "labelHF";
+            this.labelHF.Size = new System.Drawing.Size(39, 13);
+            this.labelHF.TabIndex = 41;
+            this.labelHF.Text = "heures";
+            // 
+            // labelMF
+            // 
+            this.labelMF.AutoSize = true;
+            this.labelMF.Location = new System.Drawing.Point(310, 80);
+            this.labelMF.Name = "labelMF";
+            this.labelMF.Size = new System.Drawing.Size(23, 13);
+            this.labelMF.TabIndex = 42;
+            this.labelMF.Text = "min";
+            // 
+            // richTextBoxDescript
+            // 
+            this.richTextBoxDescript.Location = new System.Drawing.Point(12, 441);
+            this.richTextBoxDescript.Name = "richTextBoxDescript";
+            this.richTextBoxDescript.Size = new System.Drawing.Size(577, 96);
+            this.richTextBoxDescript.TabIndex = 43;
+            this.richTextBoxDescript.Tag = "";
+            this.richTextBoxDescript.Text = "";
+            // 
+            // labelDescipt
+            // 
+            this.labelDescipt.AutoSize = true;
+            this.labelDescipt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDescipt.Location = new System.Drawing.Point(177, 425);
+            this.labelDescipt.Name = "labelDescipt";
+            this.labelDescipt.Size = new System.Drawing.Size(231, 13);
+            this.labelDescipt.TabIndex = 44;
+            this.labelDescipt.Text = "Description de l\'activité (400 mots Max)";
             // 
             // FormAct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1362, 694);
+            this.Controls.Add(this.labelDescipt);
+            this.Controls.Add(this.richTextBoxDescript);
+            this.Controls.Add(this.labelMF);
+            this.Controls.Add(this.labelHF);
+            this.Controls.Add(this.textBoxMinfFin);
+            this.Controls.Add(this.textBoxHeureFin);
+            this.Controls.Add(this.labelAstro);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.textBoxAct);
             this.Controls.Add(this.labelAct);
             this.Controls.Add(this.treeView1);
@@ -248,9 +302,6 @@ namespace Projet_WF1
             this.Controls.Add(this.labelCoord);
             this.Controls.Add(this.pictureCroix);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textDuree);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -281,9 +332,6 @@ namespace Projet_WF1
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textDuree;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureCroix;
         private System.Windows.Forms.Label labelCoord;
@@ -294,5 +342,13 @@ namespace Projet_WF1
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.Label labelAct;
         private System.Windows.Forms.TextBox textBoxAct;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Label labelAstro;
+        private System.Windows.Forms.TextBox textBoxHeureFin;
+        private System.Windows.Forms.TextBox textBoxMinfFin;
+        private System.Windows.Forms.Label labelHF;
+        private System.Windows.Forms.Label labelMF;
+        private System.Windows.Forms.RichTextBox richTextBoxDescript;
+        private System.Windows.Forms.Label labelDescipt;
     }
 }

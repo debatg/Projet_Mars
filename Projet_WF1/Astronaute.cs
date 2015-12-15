@@ -15,11 +15,13 @@ namespace Projet_WF1
 
 
 
+
         //private List<Activite> _listAct;
         //Constructeur
         public Astronaute(string nomAstronaute)
         {
             _nomAstronaute = nomAstronaute;
+            
         }
 
         //Accesseurs de la classe Astronaute

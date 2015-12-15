@@ -1,7 +1,5 @@
-- Classe Astronaute
-- Finir  Xml (verfier si le premier se sauvegarde bien, faire le second et les charger)
-- Pouvoir changer de jour dans l'edt
-- Bouton gris/vert en fonction du jour qu'on est
-- Styliser l'edt
-- Compléter la page des Act (description...)
-- 
+X XML descript act
+X not enable modif jours passés
+- recherche
+X visu descript act jours passés
+X init descript lors de modif act

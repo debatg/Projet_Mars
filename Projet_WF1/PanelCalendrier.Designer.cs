@@ -1,4 +1,7 @@
-﻿namespace Projet_WF1
+﻿using System.Collections.Generic;
+using System.Windows.Forms;
+
+namespace Projet_WF1
 {
     partial class PanelCalendrier
     {
@@ -64,6 +67,9 @@
             this.flowLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            bttn_jour = new List<Button>();
+            btn_cent = new List<Button>();
+            btn_dix = new List<Button>();
 
             this.Controls.Add(flowLayoutPanel1);
             this.Controls.Add(flowLayoutPanel2);
@@ -80,9 +86,7 @@
             this.flowLayoutPanel3.Controls.Add(this.bt_71_80);
             this.flowLayoutPanel3.Controls.Add(this.bt_81_90);
             this.flowLayoutPanel3.Controls.Add(this.bt_91_100);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 0);
-
-            //            this.flowLayoutPanel3.Location = new System.Drawing.Point(120, 98);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 79);
             this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(659, 29);
@@ -91,10 +95,6 @@
             // 
             // bt_51_60
             // 
-            this.bt_51_60.BackColor = System.Drawing.Color.Orange;
-            this.bt_51_60.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.bt_51_60.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gold;
-            this.bt_51_60.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
             this.bt_51_60.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_51_60.Location = new System.Drawing.Point(3, 3);
             this.bt_51_60.Name = "bt_51_60";
@@ -106,10 +106,6 @@
             // 
             // bt_61_70
             // 
-            this.bt_61_70.BackColor = System.Drawing.Color.Orange;
-            this.bt_61_70.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.bt_61_70.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gold;
-            this.bt_61_70.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
             this.bt_61_70.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_61_70.Location = new System.Drawing.Point(134, 3);
             this.bt_61_70.Name = "bt_61_70";
@@ -121,10 +117,6 @@
             // 
             // bt_71_80
             // 
-            this.bt_71_80.BackColor = System.Drawing.Color.Orange;
-            this.bt_71_80.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.bt_71_80.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gold;
-            this.bt_71_80.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
             this.bt_71_80.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_71_80.Location = new System.Drawing.Point(265, 3);
             this.bt_71_80.Name = "bt_71_80";
@@ -136,10 +128,6 @@
             // 
             // bt_81_90
             // 
-            this.bt_81_90.BackColor = System.Drawing.Color.Orange;
-            this.bt_81_90.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.bt_81_90.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gold;
-            this.bt_81_90.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
             this.bt_81_90.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_81_90.Location = new System.Drawing.Point(396, 3);
             this.bt_81_90.Name = "bt_81_90";
@@ -151,10 +139,6 @@
             // 
             // bt_91_100
             // 
-            this.bt_91_100.BackColor = System.Drawing.Color.Orange;
-            this.bt_91_100.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.bt_91_100.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gold;
-            this.bt_91_100.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
             this.bt_91_100.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_91_100.Location = new System.Drawing.Point(527, 3);
             this.bt_91_100.Name = "bt_91_100";
@@ -172,7 +156,7 @@
             this.flowLayoutPanel2.Controls.Add(this.bt_21_30);
             this.flowLayoutPanel2.Controls.Add(this.bt_31_40);
             this.flowLayoutPanel2.Controls.Add(this.bt_41_50);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 69);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 50);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(659, 29);
@@ -180,10 +164,6 @@
             // 
             // bt_1_10
             // 
-            this.bt_1_10.BackColor = System.Drawing.Color.Orange;
-            this.bt_1_10.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.bt_1_10.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gold;
-            this.bt_1_10.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
             this.bt_1_10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_1_10.Location = new System.Drawing.Point(3, 3);
             this.bt_1_10.Name = "bt_1_10";
@@ -195,10 +175,6 @@
             // 
             // bt_11_20
             // 
-            this.bt_11_20.BackColor = System.Drawing.Color.Orange;
-            this.bt_11_20.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.bt_11_20.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gold;
-            this.bt_11_20.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
             this.bt_11_20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_11_20.Location = new System.Drawing.Point(134, 3);
             this.bt_11_20.Name = "bt_11_20";
@@ -210,10 +186,6 @@
             // 
             // bt_21_30
             // 
-            this.bt_21_30.BackColor = System.Drawing.Color.Orange;
-            this.bt_21_30.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.bt_21_30.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gold;
-            this.bt_21_30.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
             this.bt_21_30.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_21_30.Location = new System.Drawing.Point(265, 3);
             this.bt_21_30.Name = "bt_21_30";
@@ -225,10 +197,6 @@
             // 
             // bt_31_40
             // 
-            this.bt_31_40.BackColor = System.Drawing.Color.Orange;
-            this.bt_31_40.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.bt_31_40.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gold;
-            this.bt_31_40.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
             this.bt_31_40.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_31_40.Location = new System.Drawing.Point(396, 3);
             this.bt_31_40.Name = "bt_31_40";
@@ -240,10 +208,6 @@
             // 
             // bt_41_50
             // 
-            this.bt_41_50.BackColor = System.Drawing.Color.Orange;
-            this.bt_41_50.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.bt_41_50.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gold;
-            this.bt_41_50.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
             this.bt_41_50.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_41_50.Location = new System.Drawing.Point(527, 3);
             this.bt_41_50.Name = "bt_41_50";
@@ -260,18 +224,13 @@
             this.flowLayoutPanel1.Controls.Add(this.bt_201_300);
             this.flowLayoutPanel1.Controls.Add(this.bt_301_400);
             this.flowLayoutPanel1.Controls.Add(this.bt_401_500);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 24);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(659, 46);
             this.flowLayoutPanel1.TabIndex = 11;
             // 
             // bt_1_100
             // 
-            this.bt_1_100.BackColor = System.Drawing.Color.DarkOrange;
-            this.bt_1_100.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.bt_1_100.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
-            this.bt_1_100.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
-            this.bt_1_100.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_1_100.ForeColor = System.Drawing.SystemColors.ControlText;
             this.bt_1_100.Location = new System.Drawing.Point(3, 3);
             this.bt_1_100.Name = "bt_1_100";
@@ -280,14 +239,10 @@
             this.bt_1_100.Text = "1 - 100";
             this.bt_1_100.UseVisualStyleBackColor = false;
             this.bt_1_100.Click += new System.EventHandler(this.bt_cent_Click);
+            
             // 
             // bt_101_200
             // 
-            this.bt_101_200.BackColor = System.Drawing.Color.DarkOrange;
-            this.bt_101_200.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.bt_101_200.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
-            this.bt_101_200.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
-            this.bt_101_200.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_101_200.ForeColor = System.Drawing.SystemColors.ControlText;
             this.bt_101_200.Location = new System.Drawing.Point(134, 3);
             this.bt_101_200.Name = "bt_101_200";
@@ -299,11 +254,6 @@
             // 
             // bt_201_300
             // 
-            this.bt_201_300.BackColor = System.Drawing.Color.DarkOrange;
-            this.bt_201_300.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.bt_201_300.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
-            this.bt_201_300.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
-            this.bt_201_300.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_201_300.ForeColor = System.Drawing.SystemColors.ControlText;
             this.bt_201_300.Location = new System.Drawing.Point(265, 3);
             this.bt_201_300.Name = "bt_201_300";
@@ -315,11 +265,6 @@
             // 
             // bt_301_400
             // 
-            this.bt_301_400.BackColor = System.Drawing.Color.DarkOrange;
-            this.bt_301_400.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.bt_301_400.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
-            this.bt_301_400.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
-            this.bt_301_400.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_301_400.ForeColor = System.Drawing.SystemColors.ControlText;
             this.bt_301_400.Location = new System.Drawing.Point(396, 3);
             this.bt_301_400.Name = "bt_301_400";
@@ -331,11 +276,7 @@
             // 
             // bt_401_500
             // 
-            this.bt_401_500.BackColor = System.Drawing.Color.DarkOrange;
-            this.bt_401_500.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.bt_401_500.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
-            this.bt_401_500.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
-            this.bt_401_500.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            
             this.bt_401_500.ForeColor = System.Drawing.SystemColors.ControlText;
             this.bt_401_500.Location = new System.Drawing.Point(527, 3);
             this.bt_401_500.Name = "bt_401_500";
@@ -462,6 +403,23 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.bttn_Jour_Click);
 
+            this.btn_dix.Add(bt_11_20);
+            this.btn_dix.Add(bt_21_30);
+            this.btn_dix.Add(bt_1_10);
+            this.btn_dix.Add(bt_31_40);
+            this.btn_dix.Add(bt_41_50);
+            this.btn_dix.Add(bt_51_60);
+            this.btn_dix.Add(bt_61_70);
+            this.btn_dix.Add(bt_71_80);
+            this.btn_dix.Add(bt_81_90);
+            this.btn_dix.Add(bt_91_100);
+
+            this.btn_cent.Add(bt_1_100);
+            this.btn_cent.Add(bt_101_200);
+            this.btn_cent.Add(bt_201_300);
+            this.btn_cent.Add(bt_301_400);
+            this.btn_cent.Add(bt_401_500);
+
             this.ResumeLayout(false);
             this.Visible=true;
             this.panel_calendrier.ResumeLayout(false);
@@ -504,5 +462,7 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
+        private List<Button> bttn_jour, btn_dix, btn_cent;
+
     }
 }

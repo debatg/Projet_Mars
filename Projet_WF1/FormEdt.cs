@@ -26,5 +26,20 @@ namespace Projet_WF1
         {
 
         }
+
+        private void bttn_Supprimer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonCR_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDescr_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -19,6 +19,8 @@ namespace Projet_WF1
         private PanelCalendrier panelCal;
         private PanelEdt panelEdt;
         private PanelAct panelAct;
+        private PanelSearch panelSearch;
+        private PanelExplor panelExplor;
         Point P;
         Size S;
 
@@ -34,11 +36,19 @@ namespace Projet_WF1
             panelCal = new PanelCalendrier(textBoxJour);
             panelEdt = new PanelEdt();
             panelAct = new PanelAct();
+            panelSearch = new PanelSearch();
+            panelExplor = new PanelExplor();
+            panelExplor = new PanelExplor();
             //label2.Text = panelEdt.Size.ToString();
 
             panelAct.Pe = panelEdt;
             panelAct.Pc = panelCal;
             panelAct.Pa = panelAct;
+            panelAct.Ps = panelSearch;
+            panelAct.Pex = panelExplor;
+
+            panelAct.ChargeActXml();
+            panelCal.InitXml();
 
             //var panelCal =panel1 as PanelCalendrier;
             panelCal.Visible = true;
@@ -55,7 +65,17 @@ namespace Projet_WF1
             panelAct.Location = P;
             panelAct.Size = S;
             this.Controls.Add(panelAct);
-            }
+
+            panelSearch.Visible = false;
+            panelSearch.Location = P;
+            panelSearch.Size = S;
+            this.Controls.Add(panelSearch);
+
+            panelExplor.Visible = false;
+            panelExplor.Location = P;
+            panelExplor.Size = S;
+            this.Controls.Add(panelExplor);
+        }
 
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -68,6 +88,15 @@ namespace Projet_WF1
             panelCal.Visible = true;
             panelEdt.Visible = false;
             panelAct.Visible = false;
+            panelExplor.Visible = false;
+        }
+
+        private void buttonSearch_Click(object sender, EventArgs e)
+        {
+            if (numericUpDownPetit.Value <= numericUpDownHaut.Value)
+                panelSearch.SearchAct(textBoxSearch.Text, (int)numericUpDownPetit.Value, (int)numericUpDownHaut.Value,1);
+            else
+                MessErreur("Le premier jour doit être inférieur ou égal au second.");
         }
 
         private void buttonAct_Click(object sender, EventArgs e)
@@ -75,16 +104,44 @@ namespace Projet_WF1
             panelCal.Visible = false;
             panelEdt.Visible = false;
             panelAct.Visible = true;
+            panelExplor.Visible = false;
+            panelSearch.Visible = false;
+
+        }
+
+        private void btnExplor_Click(object sender, EventArgs e)
+        {
+            panelCal.Visible = false;
+            panelEdt.Visible = false;
+            panelAct.Visible = false;
+            panelSearch.Visible = false;
+            panelExplor.Visible = true;
+            panelExplor.InitMap();
         }
 
         private void buttonJour_Click(object sender, EventArgs e)
         {
-            panelCal.setJourCourant(int.Parse(textBoxJour.Text));
+            try
+            {
+                if (int.Parse(textBoxJour.Text) >= 1 && int.Parse(textBoxJour.Text) <= 500)
+                    panelCal.setJourCourant(int.Parse(textBoxJour.Text));
+                else
+                    throw new Exception();
+
+            }
+            catch (Exception)
+            {
+                FormErreur FE = new FormErreur();
+                FE.setMessage("Jour entré non valide");
+                FE.ShowDialog();
+            }
         }
 
-        public static void ChangeJour(int num)
+        public static void MessErreur(string texte)
         {
-            //textBoxJour.Text = num.ToString();   
+            FormErreur FE = new FormErreur();
+            FE.setMessage(texte);
+            FE.ShowDialog();
         }
 
 

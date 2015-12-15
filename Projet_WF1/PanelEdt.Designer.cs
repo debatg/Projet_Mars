@@ -40,13 +40,21 @@ namespace Projet_WF1
             this.LB = new List<Button>();
             this.btn_Previous = new System.Windows.Forms.PictureBox();
             this.btn_Next = new System.Windows.Forms.PictureBox();
+            this.buttonCR = new System.Windows.Forms.Button();
+            this.btnDescr = new System.Windows.Forms.Button();
 
+
+
+            this.Controls.Clear();
             this.Controls.Add(dataGridView1);
             this.Controls.Add(label1);
             this.Controls.Add(this.bttn_modif_inser);
             this.Controls.Add(this.bttn_Supprimer);
             this.Controls.Add(btn_Next);
             this.Controls.Add(btn_Previous);
+            this.Controls.Add(this.buttonCR);
+            this.Controls.Add(this.btnDescr);
+
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Previous)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Next)).BeginInit();
@@ -107,6 +115,7 @@ namespace Projet_WF1
             this.bttn_Supprimer.TabIndex = 16;
             this.bttn_Supprimer.Text = "Supprimer";
             this.bttn_Supprimer.UseVisualStyleBackColor = true;
+            this.bttn_Supprimer.Click += new System.EventHandler(this.bttn_Supprimer_Click);
             // 
             // bttn_modif_inser
             // 
@@ -143,21 +152,37 @@ namespace Projet_WF1
             this.btn_Next.TabStop = false;
             this.btn_Next.Click += new System.EventHandler(this.btn_Next_Click);
             // 
-            // Form2
+            // buttonCR
             // 
-            this.Location = new Point(114, 8);
-            //this.Size = new Size(589, 422);
+            this.buttonCR.Location = new System.Drawing.Point(592, 119);
+            this.buttonCR.Name = "buttonCR";
+            this.buttonCR.Size = new System.Drawing.Size(92, 23);
+            this.buttonCR.TabIndex = 20;
+            this.buttonCR.Text = "CompteRendu";
+            this.buttonCR.UseVisualStyleBackColor = true;
+            this.buttonCR.Click += new System.EventHandler(this.buttonCR_Click);
+            // 
+            // btnDescr
+            // 
+            this.btnDescr.Location = new System.Drawing.Point(593, 149);
+            this.btnDescr.Name = "btnDescr";
+            this.btnDescr.Size = new System.Drawing.Size(91, 23);
+            this.btnDescr.TabIndex = 21;
+            this.btnDescr.Text = "Description";
+            this.btnDescr.UseVisualStyleBackColor = true;
+            this.btnDescr.Click += new System.EventHandler(this.btnDescr_Click);
             this.Visible = true;
-            /*this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(795, 512);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView1);
-            this.Name = "Form2";
-            this.Text = "Form2";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();*/
+
+            foreach (Control C in Controls)
+            {
+                if (C is Button)
+                {
+                    var btn = C as Button;
+                    btn.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+                    btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+                }
+            }
+
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Previous)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Next)).EndInit();
@@ -170,6 +195,8 @@ namespace Projet_WF1
         private List<Button> LB;
         private PictureBox btn_Previous;
         private PictureBox btn_Next;
+        private Button buttonCR;
+        private Button btnDescr;
 
         #endregion
     }

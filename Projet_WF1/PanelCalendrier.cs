@@ -16,7 +16,6 @@ namespace Projet_WF1
     partial class PanelCalendrier : PanelCentral
     {
         private int cent = 0, dix = 0, calend = 1;
-        private List<Button> bttn_jour;
         Label la = new Label();
 
         //private Jour jourCourant = null;
@@ -26,56 +25,64 @@ namespace Projet_WF1
         public PanelCalendrier(TextBox T):base()
         {
             InitializeComponent();
-            TB = T;
-            //_panelCentre = panelcentre;
-            /*Size S = panelcentre.Size;
-            Point P = panelcentre.Location;
-            _panelCentre.Location = P;
-            _panelCentre.Size = S;*/
-
-            bttn_jour = new List<Button>();
-            _list_Jour = new List<Jour>();
-
-            _list_Act = new List<Activite>();
-            _list_Act.Add(new Activite("test"));
-            _list_Act.Add(new Activite("test2"));
-
-
-            InitXml();
-
-            foreach (Button B in panel_calendrier.Controls)
-            {
-                bttn_jour.Add(B);
-            }
             
-           int i = 0;
-            foreach (Button B in bttn_jour)
+            TB = T;
+            FE = new FormErreur();
+
+            
+            _list_Jour = new List<Jour>();
+            
+            _list_Act = new List<Activite>();
+            
+            
+
+        }
+
+        private void InitBtnColor(int val, Button B)
+        {
+            if (val==1)
             {
-
-                foreach (Jour J in _list_Jour)
-                {
-                    if (J.Num.ToString() == (calend + i).ToString())
-                        B.Text = J.Num.ToString();
-                }
-
-                i++;
+                B.BackColor = Color.SkyBlue;
+                B.FlatAppearance.BorderColor = Color.CadetBlue;
             }
-            Debug.WriteLine("a");
-            SaveXml();
+            else if (val==2)
+            {
+                B.BackColor = Color.LightSlateGray;
+                B.FlatAppearance.BorderColor = Color.LightGray;
+            }
+            else
+            {
+                B.BackColor = Color.LimeGreen;
+                B.FlatAppearance.BorderColor = Color.LawnGreen;
+            }
         }
 
-        private void bt_cent_Click(object sender, EventArgs e)
+        private void InitBtnCent()
         {
-            var bttn = sender as Button;
-            cent = int.Parse(bttn.Name.Split('_')[1]) - 1;
-            // if(bttn.Name.Split('_')(5))
+            foreach (Button B in btn_cent)
+            {
+                int min = int.Parse(B.Name.Split('_')[1]);
+                int max = min + 99;
+                B.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+                if (_jourActu.Num >= min && _jourActu.Num <= max)
+                {
+                    InitBtnColor(1,B);
+                }
+                else if (_jourActu.Num >= max)
+                {
+                    InitBtnColor(2, B);
+
+                }
+                else
+                {
+                    InitBtnColor(3, B);
+
+                }
+            }
         }
 
-        private void bt_dix_Click(object sender, EventArgs e)
+        public void InitBtn()
         {
-            var bttn = sender as Button;
-            dix = int.Parse(bttn.Name.Split('_')[1]);
-            calend = cent + dix;
             int i = 0;
             foreach (Button B in bttn_jour)
             {
@@ -83,11 +90,96 @@ namespace Projet_WF1
                 foreach (Jour J in _list_Jour)
                 {
                     if (J.Num.ToString() == (calend + i).ToString())
+                    {
                         B.Text = J.Num.ToString();
+                        B.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+                        if (J.Num < _jourActu.Num)
+                        {
+                            InitBtnColor(2, B);
+
+
+                        }
+                        else if (J.Num > _jourActu.Num)
+                        {
+                            InitBtnColor(3, B);
+
+
+                        }
+                        else
+                        {
+                            InitBtnColor(1, B);
+
+
+                        }
+                        if (J.Ext == true)
+                        {
+                            B.BackgroundImage = Image.FromFile("images/universe3.png");
+                            B.BackgroundImageLayout = ImageLayout.Zoom;
+                        }
+                        else
+                        {
+                            B.BackgroundImage = null;
+                        }
+                    }
                 }
 
                 i++;
             }
+        }
+
+        private void InitBtnDix()
+        {
+            int min = cent + 1;
+            int max = min + 99;
+            foreach (Button B in btn_dix)
+            {
+                if (_jourActu.Num >= min && _jourActu.Num <= max)
+                {
+                    int mindix = int.Parse(B.Name.Split('_')[1]) + cent;
+                    int maxdix = mindix + 9;
+                    Debug.WriteLine(mindix + "//" + maxdix);
+                    if (_jourActu.Num >= mindix && _jourActu.Num <= maxdix)
+                    {
+                        InitBtnColor(1, B);
+
+                    }
+                    else if (_jourActu.Num >= maxdix)
+                    {
+                        InitBtnColor(2, B);
+
+                    }
+                    else
+                    {
+                        InitBtnColor(3, B);
+
+                    }
+                }
+                else if (_jourActu.Num >= max)
+                {
+                    InitBtnColor(2, B);
+
+                }
+                else
+                {
+                    InitBtnColor(3, B);
+
+                }
+            }
+        }
+
+        private void bt_cent_Click(object sender, EventArgs e)
+        {
+            var bttn = sender as Button;
+            cent = int.Parse(bttn.Name.Split('_')[1]) - 1;
+            InitBtnDix();
+        }
+
+        private void bt_dix_Click(object sender, EventArgs e)
+        {
+            var bttn = sender as Button;
+            dix = int.Parse(bttn.Name.Split('_')[1]);
+            calend = cent + dix;
+            InitBtn();    
 
         }
 
@@ -104,12 +196,9 @@ namespace Projet_WF1
             }
             TB.Text = _jourCourant.Num.ToString();
             changePanel(2);
-
-            //this._eventEdt(this, new EventArgs());
-
         }
         
-        private void InitXml()
+        public void InitXml()
         {
             string[] tabFiles;
             string chemin;
@@ -144,39 +233,72 @@ namespace Projet_WF1
                 }
             }
             _docActXml = XDocument.Load("Astro_Activites.xml");
-        }
+
+            foreach (Button B in panel_calendrier.Controls)
+            {
+                bttn_jour.Add(B);
+            }
+            Debug.WriteLine("eeeee//" + (int)(_dateActu - _premierJour).Minutes / 1480);
+
+            foreach (Jour J in _list_Jour)
+            {
+                if (J.Num == (int)(_dateActu - _premierJour).TotalMinutes / 1480)
+                    _jourActu = J;
+            }
+
+            InitBtn();
+            InitBtnCent();
+            InitBtnDix();
+            SaveXml();
+        }        
 
         private void ChargeEdtXml()
         {
             var branches = from a in _docXml.Descendants("Jour")
                           select a;
-
+            List<Astronaute> listAstro = new List<Astronaute>();
             foreach (XElement e in branches)
             {
                 List<ActJour> listAJ = new List<ActJour>();
                 int num = int.Parse(e.FirstAttribute.Value);
+                string CR = e.Element("Compte_rendu").Value;
                 //la.Text =e.FirstAttribute.Value;
                 var act = from a in e.Descendants("Activité")
                           select a;
                 foreach (XElement e2 in act)
                 {
+                    listAstro.Clear();
                     string name = e2.Element("Nom").Value;
                     int heure = int.Parse(e2.Element("Heure").Value);
                     int min = int.Parse(e2.Element("Min").Value);
-                    int duree= int.Parse(e2.Element("Duree").Value);
-                    Activite Act=null;
+                    int heureFin= int.Parse(e2.Element("HeureFin").Value);
+                    int minFin = int.Parse(e2.Element("MinFin").Value);
+                    int x = int.Parse(e2.Element("PosX").Value);
+                    int y = int.Parse(e2.Element("PosY").Value);
+                    string descript = e2.Element("Descript").Value;
+
+                    Activite Act =null;
 
                     foreach (Activite A in _list_Act)
                     {
                         if (A.Nom == name)
                             Act = A;
                     }
-                    listAJ.Add(new ActJour(Act, heure, min, duree));
+
+                    var XlistAstr = from a in e2.Descendants("ListAstronaute")
+                                   select a;
+                    foreach (XElement astr in XlistAstr)
+                    {
+                        foreach(Astronaute A in _list_Astro)
+                        {
+                            if (A.NomAstronaute == astr.Element("Astronaute").Value)
+                                listAstro.Add(A);
+                        }
+                    }
+                    listAJ.Add(new ActJour(Act, listAstro, heure, min, heureFin, minFin,x ,y, descript));
 
                 }
-                _list_Jour.Add(new Jour(num, _docXml, listAJ));
-                Debug.WriteLine("ooookkkk" + num);
-
+                _list_Jour.Add(new Jour(num, _docXml, listAJ, CR));
             }
         }
 
@@ -188,12 +310,11 @@ namespace Projet_WF1
                     {
 
                         _jourCourant = J;
+                        changePanel(2);
                     }
                 }
-                changePanel(2);
-            }
-        
-        
+                
+        }
 
         protected override void OnPaint(PaintEventArgs pe)
         {
