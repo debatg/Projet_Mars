@@ -14,15 +14,13 @@ namespace Projet_WF1
 {
     public partial class Form1 : Form
     {
-        private int cent = 0, dix = 0, calend = 1;
-        private string chemin;
         private PanelCalendrier panelCal;
         private PanelEdt panelEdt;
         private PanelAct panelAct;
         private PanelSearch panelSearch;
         private PanelExplor panelExplor;
-        Point P;
-        Size S;
+        private Point P;
+        private Size S;
 
 
         public Form1()
@@ -30,27 +28,28 @@ namespace Projet_WF1
             InitializeComponent();
             S = panel1.Size;
             P = panel1.Location;
-            //panel1 = new PanelEdt(label1, panel1);
             panel1.Visible = false;
             
+            //Initialisation des différents panels utilisés
             panelCal = new PanelCalendrier(textBoxJour);
             panelEdt = new PanelEdt();
             panelAct = new PanelAct();
             panelSearch = new PanelSearch();
             panelExplor = new PanelExplor();
             panelExplor = new PanelExplor();
-            //label2.Text = panelEdt.Size.ToString();
 
+            //Affectation d'un copie 
             panelAct.Pe = panelEdt;
             panelAct.Pc = panelCal;
             panelAct.Pa = panelAct;
             panelAct.Ps = panelSearch;
             panelAct.Pex = panelExplor;
 
+            //Chargement des deux fichiers Xml
             panelAct.ChargeActXml();
             panelCal.InitXml();
 
-            //var panelCal =panel1 as PanelCalendrier;
+            //Affichage du calendrier + Init tailles et position des panels
             panelCal.Visible = true;
             panelCal.Location = P;
             panelCal.Size = S;            
@@ -77,12 +76,15 @@ namespace Projet_WF1
             this.Controls.Add(panelExplor);
         }
 
-
+        
         private void pictureBox2_Click(object sender, EventArgs e)
         {
 
         }
-
+        /*===========================================================
+         * public void pictureBox1_Click
+         * Role : Affiche le panel de calendrier
+         * ==========================================================*/
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             panelCal.Visible = true;
@@ -91,6 +93,11 @@ namespace Projet_WF1
             panelExplor.Visible = false;
         }
 
+        /*===========================================================
+         * public void buttonSearch_Click
+         * Paramètre d'entrée : Effectue la recherche suivant le texte et la tranche de jour entréé
+         * puis affiche le panel de recherche
+         * ==========================================================*/
         private void buttonSearch_Click(object sender, EventArgs e)
         {
             if (numericUpDownPetit.Value <= numericUpDownHaut.Value)
@@ -99,6 +106,10 @@ namespace Projet_WF1
                 MessErreur("Le premier jour doit être inférieur ou égal au second.");
         }
 
+        /*===========================================================
+         * public void buttonAct_Click
+         * Role : Affiche le panel d'activité
+         * ==========================================================*/
         private void buttonAct_Click(object sender, EventArgs e)
         {
             panelCal.Visible = false;
@@ -109,6 +120,10 @@ namespace Projet_WF1
 
         }
 
+        /*===========================================================
+         * public void btnExplorer_Click
+         * Role : Affiche le panel d'exploration
+         * ==========================================================*/
         private void btnExplor_Click(object sender, EventArgs e)
         {
             panelCal.Visible = false;
@@ -119,6 +134,11 @@ namespace Projet_WF1
             panelExplor.InitMap();
         }
 
+        /*===========================================================
+         * public void buttonJour_Click
+         * Paramètre d'entrée : 
+         * Role : Attirbue le jour courant, et affiche son emploi du temps
+         * ==========================================================*/
         private void buttonJour_Click(object sender, EventArgs e)
         {
             try

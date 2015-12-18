@@ -23,8 +23,8 @@ namespace Projet_WF1
         private XmlDocument xmlDocument;
         private List<string> LP = new List<string>();
         private bool _modif;
-        private string _heurePrec, _minPrec;
         private ActJour _ActPrec = null;
+        private string _heurePrec, _minPrec;
 
         public PanelAct() :base()
         {
@@ -35,8 +35,6 @@ namespace Projet_WF1
 
         public void ChargeActXml()
         {
-
-
             xmlDocument = new XmlDocument();
             string date = "";
             xmlDocument.Load("Astro_Activites.xml");
@@ -154,6 +152,11 @@ namespace Projet_WF1
                         List<Astronaute> LA = new List<Astronaute>();
                         bool erreur = false;
                         if (min < 0 || minFin < 0||min>=60||minFin>=60||min%10!=0||minFin%10!=0)
+                        {
+                            MessErreur("Une des heures entrées est invalide.");
+                            erreur = true;
+                        }
+                        else if((heure==24||heureFin==24)&&(min>=40||minFin>40))
                         {
                             MessErreur("Une des heures entrées est invalide.");
                             erreur = true;

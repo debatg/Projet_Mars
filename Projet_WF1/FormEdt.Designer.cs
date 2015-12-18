@@ -56,6 +56,7 @@ namespace Projet_WF1
             this.btn_Next = new System.Windows.Forms.PictureBox();
             this.buttonCR = new System.Windows.Forms.Button();
             this.btnDescr = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Previous)).BeginInit();
@@ -205,9 +206,19 @@ namespace Projet_WF1
             this.btnDescr.UseVisualStyleBackColor = true;
             this.btnDescr.Click += new System.EventHandler(this.btnDescr_Click);
             // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(593, 331);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(101, 82);
+            this.listBox1.TabIndex = 22;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            // 
             // FormEdt
             // 
             this.ClientSize = new System.Drawing.Size(766, 535);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.btnDescr);
             this.Controls.Add(this.buttonCR);
             this.Controls.Add(this.btn_Next);
@@ -247,7 +258,6 @@ namespace Projet_WF1
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button bttn_Supprimer;
         private System.Windows.Forms.Button bttn_modif_inser;
-        private List<Button> LB;
         #endregion
 
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
@@ -262,5 +272,6 @@ namespace Projet_WF1
         private PictureBox btn_Next;
         private Button buttonCR;
         private Button btnDescr;
+        private ListBox listBox1;
     }
 }

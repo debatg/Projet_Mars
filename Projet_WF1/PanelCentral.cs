@@ -22,7 +22,6 @@ namespace Projet_WF1
         protected static XElement _astroXml = new XElement("Astronaute");
         protected static XElement _calendrierXml = new XElement("Calendrier");
         protected static Jour _jourCourant = null, _jourActu = null;
-        protected static Panel _panelCentre;
         protected static PanelAct pa;
         protected static PanelCalendrier pc;
         protected static PanelEdt pe;
@@ -37,17 +36,32 @@ namespace Projet_WF1
         {
         }
 
+        /*===========================================================
+         * public void SaveXml
+         * Paramètre d'entrée : 
+         * Role : Sauvegarde le fichier Xml
+         * ==========================================================*/
         public void SaveXml()
         {
             _docXml.Save("calendrier.xml");
         }
 
+        /*===========================================================
+         * public void MessErreur
+         * Paramètre d'entrée : string txt-> message à afficher
+         * Role : Affiche le form d'erreur, avec le texte d'erreur
+         * ==========================================================*/
         protected void MessErreur(string txt)
         {
             FE.setMessage(txt);
             FE.ShowDialog();
         }
 
+        /*===========================================================
+         * public void changePanel
+         * Paramètre d'entrée : int index -> index du panel désiré
+         * Role : Affiche le panel désiré
+         * ==========================================================*/
         protected void changePanel(int index)
         {
             if(index==1)
@@ -83,6 +97,12 @@ namespace Projet_WF1
             }
         }
 
+        /*===========================================================
+         * public void ActColor
+         * Paramètre d'entrée : Activité Act  
+         * Paramètre de sortie : Color -> Couleur correspondant à l'activité donnée en entré
+         * Role : Détermine la couleur coresspondant à l'activité
+         * ==========================================================*/
         protected System.Drawing.Color ActColor(Activite Act)
         {
             System.Drawing.Color couleur;
@@ -164,6 +184,66 @@ namespace Projet_WF1
             set
             {
                 pex = value;
+            }
+        }
+
+        public Form1 Form1
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        internal Activite Activite
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        internal ActJour ActJour
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        internal Astronaute Astronaute
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        internal Jour Jour
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
             }
         }
     }

@@ -16,11 +16,6 @@ namespace Projet_WF1
     partial class PanelCalendrier : PanelCentral
     {
         private int cent = 0, dix = 0, calend = 1;
-        Label la = new Label();
-
-        //private Jour jourCourant = null;
-        public event EventHandler _eventEdt=null;
-
 
         public PanelCalendrier(TextBox T):base()
         {
@@ -205,11 +200,7 @@ namespace Projet_WF1
             bool present = false;
             chemin = Directory.GetCurrentDirectory();
             tabFiles = Directory.GetFiles(chemin, "*.xml");
-            
-            la.Location = new Point(100, 100);
-            la.Text = "";
-            la.Visible = true;
-            this.Controls.Add(la);
+ 
             foreach (string X in tabFiles)
             {
                 if (Path.GetFileName(X) == "calendrier.xml")
@@ -218,7 +209,6 @@ namespace Projet_WF1
             if (present)
             {
                 _docXml = XDocument.Load("calendrier.xml");
-                la.Text += "ok";
                 ChargeEdtXml();
             }
             else
@@ -228,7 +218,32 @@ namespace Projet_WF1
 
                 while (i <= 500)
                 {
-                    _list_Jour.Add(new Jour(i, _docXml));
+                    Jour J = new Jour(i, _docXml);
+                    Activite Sleep = null;
+                    Activite Eat = null;
+                    Activite Private = null;
+
+
+                    foreach (Activite A in _list_Act)
+                    {
+                        if (A.Nom == "Sleeping")
+                            Sleep = A;
+                        else if (A.Nom == "Eating")
+                            Eat = A;
+                        else if (A.Nom == "Private")
+                            Private = A;
+                    }
+                    J.addAct(Sleep, _list_Astro, 0, 0, 7, 0, 0, 0, "");
+                    J.addAct(Sleep, _list_Astro, 23, 0, 24, 40, 0, 0, "");
+                    J.addAct(Eat, _list_Astro, 7, 0, 8, 0, 0, 0, "");
+                    J.addAct(Eat, _list_Astro, 12, 0, 14, 0, 0, 0, "");
+                    J.addAct(Eat, _list_Astro, 19, 0, 21, 0, 0, 0, "");
+                    J.addAct(Private, _list_Astro, 8, 0, 12, 0, 0, 0, "");
+                    J.addAct(Private, _list_Astro, 14, 0, 19, 0, 0, 0, "");
+                    J.addAct(Private, _list_Astro, 21, 0, 23, 0, 0, 0, "");
+                    Debug.WriteLine("/////" + _list_Astro.Count);
+
+                    _list_Jour.Add(J);
                     i++;
                 }
             }
@@ -238,7 +253,6 @@ namespace Projet_WF1
             {
                 bttn_jour.Add(B);
             }
-            Debug.WriteLine("eeeee//" + (int)(_dateActu - _premierJour).Minutes / 1480);
 
             foreach (Jour J in _list_Jour)
             {
@@ -262,12 +276,11 @@ namespace Projet_WF1
                 List<ActJour> listAJ = new List<ActJour>();
                 int num = int.Parse(e.FirstAttribute.Value);
                 string CR = e.Element("Compte_rendu").Value;
-                //la.Text =e.FirstAttribute.Value;
                 var act = from a in e.Descendants("Activité")
                           select a;
                 foreach (XElement e2 in act)
                 {
-                    listAstro.Clear();
+                    listAstro = new List<Astronaute>();
                     string name = e2.Element("Nom").Value;
                     int heure = int.Parse(e2.Element("Heure").Value);
                     int min = int.Parse(e2.Element("Min").Value);
@@ -284,15 +297,22 @@ namespace Projet_WF1
                         if (A.Nom == name)
                             Act = A;
                     }
-
-                    var XlistAstr = from a in e2.Descendants("ListAstronaute")
+                    
+                    var XlistAstr = from a in e2.Descendants("Astronaute")
                                    select a;
                     foreach (XElement astr in XlistAstr)
                     {
                         foreach(Astronaute A in _list_Astro)
                         {
-                            if (A.NomAstronaute == astr.Element("Astronaute").Value)
+                            if (A.NomAstronaute == astr.Value)                                
                                 listAstro.Add(A);
+                        }
+                    }
+                    if(num==1)
+                    {
+                        foreach (Astronaute Astrooo in listAstro)
+                        {
+                            Debug.WriteLine(Astrooo.NomAstronaute+"//"+Act.Nom);
                         }
                     }
                     listAJ.Add(new ActJour(Act, listAstro, heure, min, heureFin, minFin,x ,y, descript));

@@ -504,7 +504,6 @@ namespace Projet_WF1
         private System.Windows.Forms.Button bt_71_80;
         private System.Windows.Forms.Button bt_81_90;
         private System.Windows.Forms.Button bt_91_100;
-        private System.Windows.Forms.TabPage btn_Next;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;

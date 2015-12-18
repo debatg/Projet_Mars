@@ -14,67 +14,115 @@ namespace Projet_WF1
 {
     partial class PanelEdt : PanelCentral
     {
-        private Label _l;
         private ActJour _actSelect;
         private int _heureSelect, _minSelect;
         private List<Button> _listBtn;
         private bool _btnSelec = false;
-
+        private Astronaute AstroCourant = null;
 
         public PanelEdt( ) :base()
         {
             InitializeComponent();
             _listBtn = new List<Button>();
+            
         }
 
         public void InitGrid()
         {
             InitializeComponent();
+            
+            dataGridView1.Refresh();
+            listBox1.Items.Clear();
+            foreach(Astronaute A in _list_Astro)
+            {
+                listBox1.Items.Add(A.NomAstronaute);
+            }
+            listBox1.SelectedIndex = 0;
+
+            foreach (Astronaute Astr in _list_Astro)
+            {
+                if (Astr.NomAstronaute == listBox1.SelectedItem.ToString())
+                    AstroCourant = Astr;
+            }
+            InitGrid(AstroCourant);
+
+
+        }
+
+        public void InitGrid(Astronaute Astro)
+        {
+            int index = listBox1.SelectedIndex;
+            InitializeComponent();
+            listBox1.Items.Clear();
+            foreach (Astronaute A in _list_Astro)
+            {
+                listBox1.Items.Add(A.NomAstronaute);
+            }
+            listBox1.SelectedIndex = index;
             foreach (ActJour A in _jourCourant.ListAct)
             {
-                string txt = A.Heure + "H" + A.Min + "-" + A.Act.ToString();
-                if (A.Heure == A.HeureFin)
-                    AddActBtn((A.Min / 10) + 1, A.Heure + 1, A.Duree / 10, 1, txt,A.Act);
-                else if (A.Min == 0 && A.MinFin == 0)
+                if (A.ListA.Contains(Astro))
                 {
-                    AddActBtn((A.Min / 10) + 1, A.Heure + 1, 6, A.HeureFin - A.Heure, txt, A.Act);
-                }
-                else
-                {
-                    if(A.MinFin==0)
+
+                    string txt = A.Heure + "H" + A.Min + "-" + A.Act.ToString();
+                    if (A.Heure == A.HeureFin)
+                        AddActBtn((A.Min / 10) + 1, A.Heure + 1, A.Duree / 10, 1, txt, A.Act);
+                    else if (A.Min == 0 && A.MinFin == 0)
                     {
-                        AddActBtn((A.Min / 10) + 1, A.Heure + 1, (60-A.Min)/ 10, 1, txt, A.Act);
-
-                        AddActBtn( 1, A.Heure + 2, 6, A.HeureFin - A.Heure-1, txt, A.Act);
-                    }
-                    else if (A.Min==0)
-                    {
-                        AddActBtn( 1, A.Heure + 1, 6, A.HeureFin-A.Heure, txt, A.Act);
-
-                        AddActBtn(1, A.HeureFin + 1, (A.MinFin/10)+1, 1, txt, A.Act);
-
+                        AddActBtn((A.Min / 10) + 1, A.Heure + 1, 6, A.HeureFin - A.Heure, txt, A.Act);
                     }
                     else
                     {
-                        if(A.HeureFin-A.Heure>=2)
+                        if (A.MinFin == 0)
                         {
-                            AddActBtn((A.Min / 10) + 1, A.Heure + 1, 6, 1, txt, A.Act);
+                            AddActBtn((A.Min / 10) + 1, A.Heure + 1, (60 - A.Min) / 10, 1, txt, A.Act);
 
-                            AddActBtn(1, A.Heure + 2, 6, A.HeureFin - A.Heure-1 , txt, A.Act);
+                            AddActBtn(1, A.Heure + 2, 6, A.HeureFin - A.Heure - 1, txt, A.Act);
+                        }
+                        else if (A.Min == 0)
+                        {
+                            AddActBtn(1, A.Heure + 1, 6, A.HeureFin - A.Heure, txt, A.Act);
+
+                            AddActBtn(1, A.HeureFin + 1, (A.MinFin / 10) + 1, 1, txt, A.Act);
 
                         }
                         else
                         {
-                            AddActBtn((A.Min / 10) + 1, A.Heure + 1, (60-A.Min)/10,1, txt, A.Act);
+                            if (A.HeureFin - A.Heure >= 2)
+                            {
+                                AddActBtn((A.Min / 10) + 1, A.Heure + 1, 6, 1, txt, A.Act);
+
+                                AddActBtn(1, A.Heure + 2, 6, A.HeureFin - A.Heure - 1, txt, A.Act);
+
+                            }
+                            else
+                            {
+                                AddActBtn((A.Min / 10) + 1, A.Heure + 1, (60 - A.Min) / 10, 1, txt, A.Act);
+
+                            }
+                            AddActBtn(1, A.HeureFin + 1, A.MinFin / 10, 1, txt, A.Act);
 
                         }
-                        AddActBtn(1, A.HeureFin + 1, A.MinFin/10,  1, txt, A.Act);
-
                     }
+                }
+                else
+                {
+                    Debug.WriteLine("pas d'act");
                 }
 
             }
             dataGridView1.Refresh();
+            
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            foreach (Astronaute Astr in _list_Astro)
+            {
+                if (Astr.NomAstronaute == listBox1.SelectedItem.ToString())
+                    AstroCourant = Astr;
+            }
+            InitGrid(AstroCourant);
         }
 
         private void AddActBtn(int Col, int Ligne, int nbr,int hauteur, string texte, Activite Act)
@@ -90,6 +138,8 @@ namespace Projet_WF1
             B.BackColor = ActColor(Act);
             B.Font = new Font("Arial", 7, FontStyle.Regular);
             B.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            B.FlatAppearance.BorderColor = Color.Black;
+            B.Font = new Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             B.UseVisualStyleBackColor = true;
             B.Click+=new System.EventHandler(this.bttn_Act_Click);
             B.Size = S;
@@ -238,7 +288,6 @@ namespace Projet_WF1
         private void bttn_Supprimer_Click(object sender, EventArgs e)
         {
             XNode nodeSup = null;
-            ActJour AJ = null;
             var branche = from a in _docXml.Descendants("Jour")
                            select a;
 
@@ -273,9 +322,7 @@ namespace Projet_WF1
 
             foreach (XElement elem in branches)
             {
-               // List<ActJour> listAJ = new List<ActJour>();
                 int num = int.Parse(elem.FirstAttribute.Value);
-                //la.Text =e.FirstAttribute.Value;
                 if (num == _jourCourant.Num)
                 {
                     var branchesDescr = from a in elem.Descendants("Activité")

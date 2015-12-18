@@ -9,7 +9,6 @@ namespace Projet_WF1
     class Astronaute
     {
 
-        private List<Activite> _listAct;
         //Attributs de la classe Astronaute
         private string _nomAstronaute;
 

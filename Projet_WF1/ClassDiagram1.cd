@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Projet_WF1.Activite">
+    <Position X="2.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAEAAAAAAAABCAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Activite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projet_WF1.ActJour">
+    <Position X="4.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAQAICASAAAEQFAIAAAAEAAAEIAAAUQAAAAAAZEA=</HashCode>
+      <FileName>ActJour.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projet_WF1.Astronaute">
+    <Position X="6.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAAAAAAIAAAAAAAAIAA=</HashCode>
+      <FileName>Astronaute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projet_WF1.Form1">
+    <Position X="1" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAQLAAEACAggBAAiBCAAAQGAAgCAACBAQBDSQDAAAA=</HashCode>
+      <FileName>Form1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projet_WF1.Jour">
+    <Position X="8" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAACAAAAACCAIQAEAABAIAAABBCAAAIEAACACAAAhAA=</HashCode>
+      <FileName>Jour.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projet_WF1.PanelAct">
+    <Position X="5" Y="19.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AiCWpAMBQiEAAdEAAACAARACBiAAIAAoBAAAIAhBhAA=</HashCode>
+      <FileName>PanelAct.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projet_WF1.PanelCalendrier">
+    <Position X="9.5" Y="19.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EDCQgQAgSCACQgARAADAEAAaEMw7AUgAAQILAAgQRAI=</HashCode>
+      <FileName>PanelCalendrier.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projet_WF1.PanelCentral">
+    <Position X="5.25" Y="11" Width="1.5" />
+    <AssociationLine Name="Form1" Type="Projet_WF1.Form1" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.875" Y="11" />
+        <Point X="5.875" Y="10.625" />
+        <Point X="1.938" Y="10.625" />
+        <Point X="1.938" Y="9.53" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="ActJour" Type="Projet_WF1.ActJour" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.875" Y="11" />
+        <Point X="5.875" Y="10.649" />
+        <Point X="5.312" Y="10.649" />
+        <Point X="5.312" Y="7.353" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Astronaute" Type="Projet_WF1.Astronaute" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.875" Y="11" />
+        <Point X="5.875" Y="10.637" />
+        <Point X="7" Y="10.637" />
+        <Point X="7" Y="3.699" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Jour" Type="Projet_WF1.Jour" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.875" Y="11" />
+        <Point X="5.875" Y="10.625" />
+        <Point X="8.75" Y="10.625" />
+        <Point X="8.75" Y="6.776" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Activite" Type="Projet_WF1.Activite" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.875" Y="11" />
+        <Point X="5.875" Y="10.625" />
+        <Point X="3.5" Y="10.625" />
+        <Point X="3.5" Y="4.084" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>ASABCAACAAAICgDAAoikIAAAJCIAAAAgBAAACgDwgAA=</HashCode>
+      <FileName>PanelCentral.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Form1" />
+      <Property Name="Activite" />
+      <Property Name="ActJour" />
+      <Property Name="Astronaute" />
+      <Property Name="Jour" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Projet_WF1.PanelEdt">
+    <Position X="0.5" Y="19.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BACBAhVAoCAEAHIQYBCBABACSAgEAAAIAAhAQAAAEEA=</HashCode>
+      <FileName>PanelEdt.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projet_WF1.PanelExplor">
+    <Position X="2.75" Y="19.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAASAAAAAAAACAAAACAABAAAAAAAAoAQBABAA=</HashCode>
+      <FileName>PanelExplor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projet_WF1.PanelSearch">
+    <Position X="7.25" Y="19.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgCACAAAACgAAAAAAACAAAUCBAAAAAAAAMAAAAAAAAA=</HashCode>
+      <FileName>PanelSearch.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
